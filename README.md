@@ -1,0 +1,3 @@
+- [x] #scroll horizontal na tabela (deixando ela responsiva)
+- [ ] https://github.com/octo-org/octo-repo/issues/740
+- [ ] Add delight to the experience when all tasks are complete :tada:

@@ -1,0 +1,86 @@
+{
+  "name": "frontend-sem-nome-ainda",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@chakra-ui/react": "^1.0.0",
+    "@emotion/react": "^11.0.0",
+    "@emotion/styled": "^11.0.0",
+    "@mantine/core": "^3.6.14",
+    "@mantine/hooks": "^3.6.14",
+    "@mantine/notifications": "^3.6.14",
+    "@material-ui/core": "^4.12.3",
+    "@mui/icons-material": "^5.5.0",
+    "@nestjs-modules/mailer": "^1.6.0",
+    "@testing-library/jest-dom": "^5.9.0",
+    "@testing-library/react": "^10.2.1",
+    "@testing-library/user-event": "^12.0.2",
+    "@types/helmet": "^4.0.0",
+    "@types/jest": "^25.0.0",
+    "@types/moment": "^2.13.0",
+    "@types/node": "^12.0.0",
+    "@types/react-dom": "^16.9.0",
+    "antd": "^4.16.13",
+    "axios": "^0.21.0",
+    "base-64": "^1.0.0",
+    "date-fns": "^2.27.0",
+    "formik": "^2.2.9",
+    "framer-motion": "^4.1.17",
+    "gerador-nome": "0.0.5",
+    "helmet": "^4.6.0",
+    "history": "^5.1.0",
+    "inputmask": "^5.0.6",
+    "jspdf": "^2.5.1",
+    "jspdf-autotable": "^3.2.11",
+    "moment": "^2.29.1",
+    "nanoid": "^3.1.30",
+    "nodemailer": "^6.7.2",
+    "openapi-typescript-codegen": "^0.12.0-alpha",
+    "pdfmake": "^0.2.4",
+    "pdfmake-unicode": "^0.0.1",
+    "percent-value": "^1.0.9",
+    "react": "^17.0.2",
+    "react-currency-input-field": "^3.6.0",
+    "react-dom": "^17.0.2",
+    "react-hook-form": "^7.21.0",
+    "react-icons": "^3.11.0",
+    "react-intl-currency-input": "^0.2.6",
+    "react-number-format": "^4.8.0",
+    "react-router-dom": "^6.0.0",
+    "react-scripts": "4.0.3",
+    "recoil": "^0.5.2",
+    "swr": "^1.0.1",
+    "typescript": "^3.9.5",
+    "web-vitals": "^0.2.2",
+    "yup": "^0.32.11"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "codegen": "npx openapi-typescript-codegen --useUnionTypes --input http://localhost:3000/api-json --output ./src/generated --useOptions --exportCore false --exportServices false"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/base-64": "^1.0.0",
+    "@types/inputmask": "^5.0.1",
+    "@types/pdfmake": "^0.1.21",
+    "@types/react": "^16.14.21",
+    "@welldone-software/why-did-you-render": "^6.2.3"
+  }
+}

@@ -1,0 +1,173 @@
+"filename", "language", "TypeScript (Luxcium)", "TypeScript React (Luxcium)", "JavaScript (Luxcium)", "CSS", "HTML", "JSON", "comment", "blank", "total"
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/package-lock.json", "JSON", 0, 0, 0, 0, 0, -19026, 0, -1, -19027
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/package.json", "JSON", 0, 0, 0, 0, 0, -75, 0, -1, -76
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/public/index.html", "HTML", 0, 0, 0, 0, -20, 0, -23, -1, -44
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/public/manifest.json", "JSON", 0, 0, 0, 0, 0, -25, 0, -1, -26
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/App.test.tsx", "TypeScript React (Luxcium)", 0, -9, 0, 0, 0, 0, 0, -2, -11
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/App.tsx", "TypeScript React (Luxcium)", 0, -11, 0, 0, 0, 0, 0, -2, -13
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/components/Busca.tsx", "TypeScript React (Luxcium)", 0, -17, 0, 0, 0, 0, -2, 0, -19
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/components/CaminhoIndicador.tsx", "TypeScript React (Luxcium)", 0, -21, 0, 0, 0, 0, 0, -4, -25
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/components/CampoBuscar.tsx", "TypeScript React (Luxcium)", 0, -24, 0, 0, 0, 0, 0, 0, -24
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/components/CheckVendedor.tsx", "TypeScript React (Luxcium)", 0, -31, 0, 0, 0, 0, -1, -6, -38
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/components/CotacaoItem.tsx", "TypeScript React (Luxcium)", 0, -40, 0, 0, 0, 0, 0, -2, -42
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/components/CustomSelect.tsx", "TypeScript React (Luxcium)", 0, -21, 0, 0, 0, 0, 0, -2, -23
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/components/DashVendedor.tsx", "TypeScript React (Luxcium)", 0, -10, 0, 0, 0, 0, 0, 0, -10
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/components/Drawer.tsx", "TypeScript React (Luxcium)", 0, -24, 0, 0, 0, 0, 0, -2, -26
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/components/Form.tsx", "TypeScript React (Luxcium)", 0, -33, 0, 0, 0, 0, 0, -3, -36
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/components/InfoEmpresa.tsx", "TypeScript React (Luxcium)", 0, -45, 0, 0, 0, 0, -1, -5, -51
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/components/ListaEmpresas.tsx", "TypeScript React (Luxcium)", 0, -53, 0, 0, 0, 0, -1, -5, -59
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/components/ListaMenu.tsx", "TypeScript React (Luxcium)", 0, -50, 0, 0, 0, 0, 0, -6, -56
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/components/ListaUsuarios.tsx", "TypeScript React (Luxcium)", 0, -102, 0, 0, 0, 0, 0, -6, -108
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/components/Loading.tsx", "TypeScript React (Luxcium)", 0, -18, 0, 0, 0, 0, 0, 0, -18
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/components/Menu.tsx", "TypeScript React (Luxcium)", 0, -36, 0, 0, 0, 0, 0, -7, -43
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/components/NadaAqui.tsx", "TypeScript React (Luxcium)", 0, -14, 0, 0, 0, 0, 0, -1, -15
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/components/OpenDrawer.tsx", "TypeScript React (Luxcium)", 0, -31, 0, 0, 0, 0, 0, -5, -36
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/components/PaginaInfo.tsx", "TypeScript React (Luxcium)", 0, -10, 0, 0, 0, 0, -2, 0, -12
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/components/Paginacao.tsx", "TypeScript React (Luxcium)", 0, -45, 0, 0, 0, 0, 0, -5, -50
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/components/ProfileMenu.tsx", "TypeScript React (Luxcium)", 0, -86, 0, 0, 0, 0, -2, -18, -106
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/components/QuantidadeTotal.tsx", "TypeScript React (Luxcium)", 0, -29, 0, 0, 0, 0, -1, -6, -36
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/components/QuantidadeTotalRasc.tsx", "TypeScript React (Luxcium)", 0, -27, 0, 0, 0, 0, 0, -1, -28
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/components/Result.tsx", "TypeScript React (Luxcium)", 0, -22, 0, 0, 0, 0, 0, -1, -23
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/components/Tabela.tsx", "TypeScript React (Luxcium)", 0, -118, 0, 0, 0, 0, 0, -14, -132
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/components/TabelaSemCampos.tsx", "TypeScript React (Luxcium)", 0, -58, 0, 0, 0, 0, 0, -2, -60
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/components/Test.tsx", "TypeScript React (Luxcium)", 0, -6, 0, 0, 0, 0, -1, -1, -8
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/components/Teste.tsx", "TypeScript React (Luxcium)", 0, -17, 0, 0, 0, 0, 0, -1, -18
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/components/carregando.tsx", "TypeScript React (Luxcium)", 0, -10, 0, 0, 0, 0, 0, -2, -12
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/components/erros/PageNotFound.tsx", "TypeScript React (Luxcium)", 0, -20, 0, 0, 0, 0, 0, 0, -20
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/components/modal/component.modal.tsx", "TypeScript React (Luxcium)", 0, -12, 0, 0, 0, 0, 0, -1, -13
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/components/modal/modal.context.ts", "TypeScript (Luxcium)", 0, 0, 0, 0, 0, 0, 0, -1, -1
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/components/modals/ModalItem.tsx", "TypeScript React (Luxcium)", 0, -128, 0, 0, 0, 0, 0, -11, -139
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/context/atom.ts", "TypeScript (Luxcium)", -10, 0, 0, 0, 0, 0, 0, -2, -12
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/context/auth.tsx", "TypeScript React (Luxcium)", 0, -38, 0, 0, 0, 0, 0, -7, -45
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/exceptions/NotPossibleConnectError.ts", "TypeScript (Luxcium)", -10, 0, 0, 0, 0, 0, 0, 0, -10
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/generated/index.ts", "TypeScript (Luxcium)", -1, 0, 0, 0, 0, 0, 0, 0, -1
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/generated/models/LoginTdo.ts", "TypeScript (Luxcium)", -4, 0, 0, 0, 0, 0, 0, 0, -4
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/hooks/useCalcularItens.ts", "TypeScript (Luxcium)", -10, 0, 0, 0, 0, 0, 0, -2, -12
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/hooks/useCotacao.ts", "TypeScript (Luxcium)", -49, 0, 0, 0, 0, 0, 0, -6, -55
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/hooks/useCotacoes.ts", "TypeScript (Luxcium)", -13, 0, 0, 0, 0, 0, 0, -1, -14
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/hooks/useCurrencyMask.js", "JavaScript (Luxcium)", 0, 0, -16, 0, 0, 0, 0, -7, -23
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/hooks/useEmpresa.ts", "TypeScript (Luxcium)", 0, 0, 0, 0, 0, 0, 0, -1, -1
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/hooks/useFlag.ts", "TypeScript (Luxcium)", -17, 0, 0, 0, 0, 0, 0, -2, -19
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/hooks/useFlagFornecedor.ts", "TypeScript (Luxcium)", -24, 0, 0, 0, 0, 0, 0, -3, -27
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/hooks/useHistorico.ts", "TypeScript (Luxcium)", -19, 0, 0, 0, 0, 0, 0, -3, -22
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/hooks/useItemFunctions.ts", "TypeScript (Luxcium)", -45, 0, 0, 0, 0, 0, -1, -6, -52
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/hooks/useItens.ts", "TypeScript (Luxcium)", -44, 0, 0, 0, 0, 0, -1, -7, -52
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/hooks/useSetStatusLocalmente.ts", "TypeScript (Luxcium)", -30, 0, 0, 0, 0, 0, -9, -9, -48
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/hooks/useStatusEnvio.ts", "TypeScript (Luxcium)", -26, 0, 0, 0, 0, 0, 0, -2, -28
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/hooks/useTabela.tsx", "TypeScript React (Luxcium)", 0, -272, 0, 0, 0, 0, -4, -13, -289
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/hooks/useToReal.ts", "TypeScript (Luxcium)", -6, 0, 0, 0, 0, 0, 0, 0, -6
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/hooks/useVendedor.ts", "TypeScript (Luxcium)", -21, 0, 0, 0, 0, 0, -1, -3, -25
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/index.tsx", "TypeScript React (Luxcium)", 0, -18, 0, 0, 0, 0, 0, -3, -21
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/lib/api.ts", "TypeScript (Luxcium)", -94, 0, 0, 0, 0, 0, -1, -15, -110
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/lib/apiUsuario.tsx", "TypeScript React (Luxcium)", 0, -20, 0, 0, 0, 0, 0, -3, -23
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/lib/moeda.js", "JavaScript (Luxcium)", 0, 0, -11, 0, 0, 0, 0, -3, -14
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/lib/types.ts", "TypeScript (Luxcium)", -111, 0, 0, 0, 0, 0, 0, -4, -115
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/lib/utils.ts", "TypeScript (Luxcium)", -7, 0, 0, 0, 0, 0, 0, -2, -9
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/pages/CotacoesAbertas.tsx", "TypeScript React (Luxcium)", 0, -611, 0, 0, 0, 0, -34, -90, -735
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/pages/FinalizarCotacao.tsx", "TypeScript React (Luxcium)", 0, -123, 0, 0, 0, 0, -12, -29, -164
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/pages/FormularioLogin.tsx", "TypeScript React (Luxcium)", 0, -128, 0, 0, 0, 0, -4, -18, -150
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/pages/HistoricoTributosModal.tsx", "TypeScript React (Luxcium)", 0, -62, 0, 0, 0, 0, 0, -5, -67
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/pages/Inc.tsx", "TypeScript React (Luxcium)", 0, 0, 0, 0, 0, 0, 0, -1, -1
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/pages/Informacoes.tsx", "TypeScript React (Luxcium)", 0, 0, 0, 0, 0, 0, 0, -1, -1
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/pages/ItensCotacaoTabela.tsx", "TypeScript React (Luxcium)", 0, -196, 0, 0, 0, 0, 0, -17, -213
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/pages/Login.tsx", "TypeScript React (Luxcium)", 0, -20, 0, 0, 0, 0, 0, -1, -21
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/pages/ModalDesconto.tsx", "TypeScript React (Luxcium)", 0, -45, 0, 0, 0, 0, 0, -8, -53
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/pages/Moeda.tsx", "TypeScript React (Luxcium)", 0, -22, 0, 0, 0, 0, 0, -2, -24
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/pages/Pronto.tsx", "TypeScript React (Luxcium)", 0, -16, 0, 0, 0, 0, 0, 0, -16
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/pages/QualCotacao.tsx", "TypeScript React (Luxcium)", 0, -17, 0, 0, 0, 0, 0, 0, -17
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/pages/Relatorios.tsx", "TypeScript React (Luxcium)", 0, -33, 0, 0, 0, 0, 0, -3, -36
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/pages/Report.tsx", "TypeScript React (Luxcium)", 0, -403, 0, 0, 0, 0, -9, -38, -450
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/pages/RouteComponent-rasc.tsx", "TypeScript React (Luxcium)", 0, -26, 0, 0, 0, 0, 0, -4, -30
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/pages/RouteComponent.tsx", "TypeScript React (Luxcium)", 0, -28, 0, 0, 0, 0, 0, -4, -32
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/pages/TabelaEditavel.tsx", "TypeScript React (Luxcium)", 0, 0, 0, 0, 0, 0, 0, -2, -2
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/pages/TesteLayout.tsx", "TypeScript React (Luxcium)", 0, -98, 0, 0, 0, 0, -3, -18, -119
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/pages/TipoDeRelatorio.tsx", "TypeScript React (Luxcium)", 0, -17, 0, 0, 0, 0, 0, 0, -17
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/pages/useTabela.tsx", "TypeScript React (Luxcium)", 0, -165, 0, 0, 0, 0, -1, -12, -178
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/react-app-env.d.ts", "TypeScript (Luxcium)", 0, 0, 0, 0, 0, 0, -1, -1, -2
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/store/paginacaoState.ts", "TypeScript (Luxcium)", -17, 0, 0, 0, 0, 0, 0, -4, -21
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/teste/Teste.tsx", "TypeScript React (Luxcium)", 0, 0, 0, 0, 0, 0, 0, -1, -1
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/theme/index.ts", "TypeScript (Luxcium)", -36, 0, 0, 0, 0, 0, -4, -3, -43
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/theme/styles.css", "CSS", 0, 0, 0, -34, 0, 0, 0, -8, -42
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/theme/tabela.css", "CSS", 0, 0, 0, -6, 0, 0, 0, -1, -7
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/util/util.ts", "TypeScript (Luxcium)", -226, 0, 0, 0, 0, 0, 0, -1, -227
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/src/wdyr.ts", "TypeScript (Luxcium)", -6, 0, 0, 0, 0, 0, -1, -1, -8
+"/home/jneiva/projetos/Projeto-cotacao/client-cotacao/tsconfig.json", "JSON", 0, 0, 0, 0, 0, -20, 0, -1, -21
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/Flags/flag.controller.ts", "TypeScript (Luxcium)", 29, 0, 0, 0, 0, 0, 0, 7, 36
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/Flags/flag.module.ts", "TypeScript (Luxcium)", 17, 0, 0, 0, 0, 0, 0, 2, 19
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/Flags/flag.service.ts", "TypeScript (Luxcium)", 41, 0, 0, 0, 0, 0, 2, 11, 54
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/Flags/flagutil.service.ts", "TypeScript (Luxcium)", 49, 0, 0, 0, 0, 0, 0, 11, 60
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/app.controller.ts", "TypeScript (Luxcium)", 10, 0, 0, 0, 0, 0, 0, 3, 13
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/app.module.ts", "TypeScript (Luxcium)", 56, 0, 0, 0, 0, 0, 1, 2, 59
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/app.service.ts", "TypeScript (Luxcium)", 7, 0, 0, 0, 0, 0, 0, 2, 9
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/auth/auth.controller.ts", "TypeScript (Luxcium)", 21, 0, 0, 0, 0, 0, 0, 4, 25
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/auth/auth.module.ts", "TypeScript (Luxcium)", 20, 0, 0, 0, 0, 0, 0, 2, 22
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/auth/auth.service.ts", "TypeScript (Luxcium)", 18, 0, 0, 0, 0, 0, 0, 5, 23
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/auth/constants.ts", "TypeScript (Luxcium)", 3, 0, 0, 0, 0, 0, 0, 0, 3
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/auth/curreentUser.ts", "TypeScript (Luxcium)", 6, 0, 0, 0, 0, 0, 0, 2, 8
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/auth/currentUser.ts", "TypeScript (Luxcium)", 6, 0, 0, 0, 0, 0, 0, 2, 8
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/auth/jwt-auth.guard.ts", "TypeScript (Luxcium)", 5, 0, 0, 0, 0, 0, 0, 1, 6
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/auth/jwt.strategy.ts", "TypeScript (Luxcium)", 20, 0, 0, 0, 0, 0, 0, 2, 22
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/auth/jwtStrategy.ts", "TypeScript (Luxcium)", 20, 0, 0, 0, 0, 0, 0, 3, 23
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/auth/user-teste.decorator.ts", "TypeScript (Luxcium)", 7, 0, 0, 0, 0, 0, 0, 1, 8
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/banco/banco.module.ts", "TypeScript (Luxcium)", 8, 0, 0, 0, 0, 0, 0, 2, 10
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/banco/banco.service.ts", "TypeScript (Luxcium)", 21, 0, 0, 0, 0, 0, 1, 6, 28
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/cliente/cliente.controller.ts", "TypeScript (Luxcium)", 19, 0, 0, 0, 0, 0, 1, 6, 26
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/cliente/cliente.module.ts", "TypeScript (Luxcium)", 16, 0, 0, 0, 0, 0, 0, 2, 18
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/cliente/cliente.service.ts", "TypeScript (Luxcium)", 110, 0, 0, 0, 0, 0, 3, 22, 135
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/cliente/models/knexCache.ts", "TypeScript (Luxcium)", 31, 0, 0, 0, 0, 0, 17, 6, 54
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/common/cripto.ts", "TypeScript (Luxcium)", 417, 0, 0, 0, 0, 0, 20, 18, 455
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/config/configuracao.ts", "TypeScript (Luxcium)", 38, 0, 0, 0, 0, 0, 0, 0, 38
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/contrato/contrato.controller.ts", "TypeScript (Luxcium)", 11, 0, 0, 0, 0, 0, 0, 5, 16
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/contrato/contrato.dto.ts", "TypeScript (Luxcium)", 20, 0, 0, 0, 0, 0, 0, 2, 22
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/contrato/contrato.module.ts", "TypeScript (Luxcium)", 13, 0, 0, 0, 0, 0, 0, 2, 15
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/contrato/contrato.service.ts", "TypeScript (Luxcium)", 208, 0, 0, 0, 0, 0, 6, 42, 256
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/contrato/registroTdo.ts", "TypeScript (Luxcium)", 3, 0, 0, 0, 0, 0, 0, 0, 3
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/cotacao/cotacao.controller.ts", "TypeScript (Luxcium)", 116, 0, 0, 0, 0, 0, 6, 21, 143
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/cotacao/cotacao.module.ts", "TypeScript (Luxcium)", 13, 0, 0, 0, 0, 0, 0, 2, 15
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/cotacao/cotacao.service.ts", "TypeScript (Luxcium)", 306, 0, 0, 0, 0, 0, 30, 54, 390
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/cripto/cripto.controller.ts", "TypeScript (Luxcium)", 23, 0, 0, 0, 0, 0, 0, 4, 27
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/cripto/cripto.dto.ts", "TypeScript (Luxcium)", 4, 0, 0, 0, 0, 0, 0, 1, 5
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/cripto/cripto.module.ts", "TypeScript (Luxcium)", 9, 0, 0, 0, 0, 0, 0, 2, 11
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/cripto/cripto.service.ts", "TypeScript (Luxcium)", 50, 0, 0, 0, 0, 0, 0, 9, 59
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/cripto/hbcrypt.ts", "TypeScript (Luxcium)", 6, 0, 0, 0, 0, 0, 0, 3, 9
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/database/api-database.service copy.ts", "TypeScript (Luxcium)", 21, 0, 0, 0, 0, 0, 0, 3, 24
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/database/api-database.service.ts", "TypeScript (Luxcium)", 42, 0, 0, 0, 0, 0, 0, 4, 46
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/database/database-cotacao.service.ts", "TypeScript (Luxcium)", 42, 0, 0, 0, 0, 0, 0, 2, 44
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/database/database.module.ts", "TypeScript (Luxcium)", 11, 0, 0, 0, 0, 0, 0, 2, 13
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/database/fornecedor-database.service.ts", "TypeScript (Luxcium)", 48, 0, 0, 0, 0, 0, 0, 6, 54
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/database/knexCache.ts", "TypeScript (Luxcium)", 32, 0, 0, 0, 0, 0, 2, 6, 40
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/database/site-success-database.service.ts", "TypeScript (Luxcium)", 62, 0, 0, 0, 0, 0, 0, 6, 68
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/database/success-database.service.ts", "TypeScript (Luxcium)", 39, 0, 0, 0, 0, 0, 0, 6, 45
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/empresa/empresa.controller.ts", "TypeScript (Luxcium)", 17, 0, 0, 0, 0, 0, 0, 8, 25
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/empresa/empresa.module.ts", "TypeScript (Luxcium)", 13, 0, 0, 0, 0, 0, 3, 3, 19
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/empresa/empresa.service.ts", "TypeScript (Luxcium)", 40, 0, 0, 0, 0, 0, 0, 8, 48
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/empresa/empresa.util.service.ts", "TypeScript (Luxcium)", 49, 0, 0, 0, 0, 0, 0, 11, 60
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/erros/erros.ts", "TypeScript (Luxcium)", 5, 0, 0, 0, 0, 0, 0, 0, 5
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/fornecedor/currentFornecedor.ts", "TypeScript (Luxcium)", 6, 0, 0, 0, 0, 0, 0, 2, 8
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/fornecedor/fornecedor.controller.ts", "TypeScript (Luxcium)", 35, 0, 0, 0, 0, 0, 0, 6, 41
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/fornecedor/fornecedor.module.ts", "TypeScript (Luxcium)", 14, 0, 0, 0, 0, 0, 0, 2, 16
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/fornecedor/fornecedor.service.ts", "TypeScript (Luxcium)", 17, 0, 0, 0, 0, 0, 0, 5, 22
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/historico-tributos/historico-tributos.controller.ts", "TypeScript (Luxcium)", 19, 0, 0, 0, 0, 0, 0, 3, 22
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/historico-tributos/historico-tributos.module.ts", "TypeScript (Luxcium)", 15, 0, 0, 0, 0, 0, 0, 2, 17
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/historico-tributos/historico-tributos.service.ts", "TypeScript (Luxcium)", 31, 0, 0, 0, 0, 0, 0, 5, 36
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/main.ts", "TypeScript (Luxcium)", 17, 0, 0, 0, 0, 0, 1, 5, 23
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/models/types.ts", "TypeScript (Luxcium)", 87, 0, 0, 0, 0, 0, 0, 4, 91
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/price/price.controller.ts", "TypeScript (Luxcium)", 32, 0, 0, 0, 0, 0, 0, 7, 39
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/price/price.module.ts", "TypeScript (Luxcium)", 16, 0, 0, 0, 0, 0, 0, 3, 19
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/price/price.service.ts", "TypeScript (Luxcium)", 119, 0, 0, 0, 0, 0, 6, 36, 161
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/total/total.controller.ts", "TypeScript (Luxcium)", 18, 0, 0, 0, 0, 0, 0, 5, 23
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/total/total.module.ts", "TypeScript (Luxcium)", 11, 0, 0, 0, 0, 0, 0, 2, 13
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/total/total.service.ts", "TypeScript (Luxcium)", 85, 0, 0, 0, 0, 0, 3, 26, 114
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/user/user.controller.ts", "TypeScript (Luxcium)", 3, 0, 0, 0, 0, 0, 3, 3, 9
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/user/user.module.ts", "TypeScript (Luxcium)", 8, 0, 0, 0, 0, 0, 0, 2, 10
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/user/user.service.ts", "TypeScript (Luxcium)", 3, 0, 0, 0, 0, 0, 3, 3, 9
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/usuario/interfaces/login.tdo.ts", "TypeScript (Luxcium)", 10, 0, 0, 0, 0, 0, 0, 0, 10
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/usuario/interfaces/payload.validate.ts", "TypeScript (Luxcium)", 4, 0, 0, 0, 0, 0, 0, 0, 4
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/usuario/interfaces/usuario.interface.ts", "TypeScript (Luxcium)", 6, 0, 0, 0, 0, 0, 0, 0, 6
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/usuario/tdo/user.login.ts", "TypeScript (Luxcium)", 4, 0, 0, 0, 0, 0, 0, 0, 4
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/usuario/usuario.controller.ts", "TypeScript (Luxcium)", 12, 0, 0, 0, 0, 0, 0, 4, 16
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/usuario/usuario.module.ts", "TypeScript (Luxcium)", 11, 0, 0, 0, 0, 0, 0, 3, 14
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/usuario/usuario.service.ts", "TypeScript (Luxcium)", 30, 0, 0, 0, 0, 0, 0, 9, 39
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/usuario/usuarioDTO.ts", "TypeScript (Luxcium)", 6, 0, 0, 0, 0, 0, 0, 0, 6
+"/home/jneiva/projetos/Projeto-cotacao/server-cotacao/src/util/util.ts", "TypeScript (Luxcium)", 235, 0, 0, 0, 0, 0, 0, 7, 242
+"Total", "-", 2226, -3536, -27, -40, -20, -19146, -12, -26, -20581
