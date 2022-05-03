@@ -1,7 +1,7 @@
 import axios from "axios";
 import { CotacaoTDO, CotacaoTDOPayload, DescontoGeral } from "./types";
 
-export const apiEndPoint = 'htpp://success.vps-kinghost.net:3050';
+export const apiEndPoint = 'http://success.vps-kinghost.net:3050';
 
 export const api = axios.create({
 	baseURL: apiEndPoint,
