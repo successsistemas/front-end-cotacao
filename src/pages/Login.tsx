@@ -5,7 +5,7 @@ import { FormularioLogin } from "./FormularioLogin";
 
 export const Login = () => {
 	return (
-		<Box position="relative" bg={"#e6e6e6"} w="full" h="100vh">
+		<Box position="relative" bg={"green"} w="full" h="100vh">
 			<Box position="absolute" bg={"blue.400"} w="full" h="150">
 			</Box>
 			<Center h="100vh" >
