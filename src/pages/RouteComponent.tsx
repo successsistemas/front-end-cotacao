@@ -22,7 +22,7 @@ export const RouteComponent = () => {
 				<Route path="cotacoes-abertas/:codigoCotacao" element={<ListaEmpresa />} />
 				<Route path="cotacao/:url" element={<CotacaoInterceptor />} />
 				<Route path="cotacoes-fechadas" element={<ListaEmpresa />} />
-				<Route path="home/:url" element={<Test />} />
+				<Route path="home/:url" element={<PaginaInfo />} />
 				<Route path="relatorios/:codigoCotacao" element={<Report />} />
 				<Route path="configuracao" element={<ListaUsuarios />} />
 				<Route path=":idDocumento" element={<Layout />} />
