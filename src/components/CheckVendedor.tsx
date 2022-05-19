@@ -7,13 +7,8 @@ import { Result } from "./Result";
 export const CheckVendedor: FC = ({ children }) => {
 
 	const navigate = useNavigate();
-	const {
-		vendedor,
-		error,
-		loading,
-		isValidating,
-		mutate
-	} = useVendedor();
+
+	const { vendedor, error, loading, isValidating, mutate } = useVendedor();
 
 	useEffect(() => {
 
