@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/share/yarn/bin/yarn.js add @types/translatte
+  /usr/local/bin/node /usr/share/yarn/bin/yarn.js add @myorg/mypackage
 
 PATH: 
   /home/jneiva/bin:/usr/local/bin:/home/jneiva/.cargo/bin:/home/jneiva/.vscode-server/bin/30d9c6cd9483b2cc586687151bcbcd635f373630/bin/remote-cli:/home/jneiva/bin:/usr/local/bin:/home/jneiva/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/ProgramData/Oracle/Java/javapath:/mnt/c/Python310/Scripts/:/mnt/c/Python310/:/mnt/c/Python39/Scripts/:/mnt/c/Python39/:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files (x86)/Yarn/bin/:/mnt/c/Users/Success/AppData/Roaming/Python/Python39/Scripts:/mnt/c/Program Files (x86)/IBE Software/HelpNDoc 7:/mnt/c/Program Files (x86)/IBE Software/HelpNDoc 4:/mnt/c/Program Files/TortoiseSVN/bin:/mnt/c/Program Files (x86)/Subversion/bin:/mnt/c/tools/php74:/mnt/c/ProgramData/ComposerSetup/bin:/mnt/c/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin:/mnt/c/MinGW/bin:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Java/jdk-17.0.2:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/OpenJDK/openjdk-11.0.14.1_1/bin:/mnt/c/Program Files/Java/jdk-17.0.2/bin:/mnt/c/Users/Success/AppData/Local/Microsoft/WindowsApps:/mnt/c/apache-maven-3.8.4/bin:/mnt/c/Users/Success/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/Success/AppData/Roaming/npm:/mnt/c/Users/Success/AppData/Local/Android/Sdk/platform-tools:/mnt/c/Users/Success/.dotnet/tools:/mnt/c/Users/Success/AppData/Local/GitHubDesktop/bin:/usr/local/go/bin:/home/jneiva/go/bin:/home/jneiva/.local/bin:/home/jneiva/.npm-global/bin:/usr/local/go/bin:/home/jneiva/go/bin:/home/jneiva/.local/bin:/home/jneiva/.npm-global/bin
@@ -14,7 +14,7 @@ Platform:
   linux x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@types%2ftranslatte: Not found
+  Error: https://registry.yarnpkg.com/@myorg%2fmypackage: Not found
       at Request.params.callback [as _callback] (/usr/share/yarn/lib/cli.js:66138:18)
       at Request.self.callback (/usr/share/yarn/lib/cli.js:140883:22)
       at Request.emit (node:events:526:28)

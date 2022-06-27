@@ -4,6 +4,7 @@ import { ListaEmpresa } from "../components/ListaEmpresas";
 import { ListaUsuarios } from "../components/ListaUsuarios";
 import { PaginaInfo } from "../components/PaginaInfo";
 import { SkeletonLoadingDetail } from "../components/SkeletonLoadingDetail";
+import { Teste } from "../components/Teste";
 import { CotacaoInterceptor } from "../pageInterceptores/CotacaoInterceptor";
 import { EmailPage } from "./EmailPage";
 import { Layout } from "./Layout";
@@ -16,6 +17,7 @@ export const RouteComponent = () => {
 
 		<Routes>
 			<Route index element={<Login />} />
+			<Route path="juju" element={<Teste />} />
 			<Route path="testecomponent" element={<SkeletonLoadingDetail />} />
 			<Route path="teste" element={<EmailPage />} />
 			<Route path={"painel"} element={<Layout />} >
@@ -28,6 +30,7 @@ export const RouteComponent = () => {
 				<Route path="configuracao" element={<ListaUsuarios />} />
 				<Route path=":idDocumento" element={<Layout />} />
 				<Route path="teste/:url" element={<EmailPage />} />
+
 			</Route>
 		</Routes>
 	);

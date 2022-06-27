@@ -1,5 +1,5 @@
-import { HStack, Skeleton, Spacer, Stack, Text, useMediaQuery, VStack } from '@chakra-ui/react';
-import { Collapse } from 'antd';
+import { HStack, Skeleton, Spacer, Stack, Text, useMediaQuery, VStack, Button as ChakaraButton, Text as TextChakra, useDisclosure } from '@chakra-ui/react';
+import { Button, Collapse } from 'antd';
 import React, { useContext, useEffect, useState } from "react";
 import { CotacaoContext } from '../context/CotacaoContext';
 import { InfoEmpresaContext } from '../context/InfoEmpresaContext';
@@ -20,7 +20,7 @@ export const InfoEmpresa = () => {
 	const price = useContext(CotacaoContext)
 
 	const dadosEmpresa = useContext(InfoEmpresaContext)
-
+	const { isOpen, onToggle } = useDisclosure()
 
 
 	const [codCotacao, setCodCotacao] = useState();
@@ -58,7 +58,7 @@ export const InfoEmpresa = () => {
 							{firstLetterUpperCase(empresa?.razao)}
 						</Text>
 						<Text fontSize={"16px"} fontFamily={"Roboto"} style={{ fontWeight: 500 }} color='gray.500'>
-							CNPJ: {empresa?.cnpj.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, "$1.$2.$3/$4-$5")}
+							CNPdJ: {empresa?.cnpj.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, "$1.$2.$3/$4-$5")}
 						</Text>
 						<Text fontSize={"16px"} fontFamily={"Roboto"} style={{ fontWeight: 500 }} color='gray.500'>
 							cidade: {empresa?.cidade}
@@ -74,7 +74,14 @@ export const InfoEmpresa = () => {
 
 				</>
 				: <VStack w={"100%"} alignItems={"start"}>
+					<HStack w="full">
+						<ChakaraButton>Solicitante</ChakaraButton>
+						<Spacer />
+						<TextChakra>Total de itens: 13</TextChakra>
+					</HStack>
+					<Collapse collapsible={true} animateOpacity>
 
+					</Collapse>
 					<Collapse style={{ width: "100%" }} collapsible="header" defaultActiveKey={['0']}>
 						<Panel header={firstLetterUpperCase(empresa?.razao)} key="1">
 							<Text fontSize={"sm"} color='gray.500'>

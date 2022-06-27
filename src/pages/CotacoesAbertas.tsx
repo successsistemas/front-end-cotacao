@@ -2,14 +2,15 @@
 import {
 	Button,
 	Center,
-	Divider, Editable, EditableInput, EditablePreview, Flex, HStack, Spacer, Spinner, useDisclosure, useMediaQuery, VStack
+	Image,
+	Divider, Editable, EditableInput, EditablePreview, Text as TextChakra, Flex, HStack, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Spacer, Spinner, useDisclosure, useMediaQuery, VStack
 } from "@chakra-ui/react";
 import { Stepper } from '@mantine/core';
 import { Badge, Button as ButtonAnt, Layout, message, Tooltip, Typography } from "antd";
 import 'antd/dist/antd.css';
 import { ColumnType } from "antd/lib/table";
 import moment from "moment";
-import React, { memo, useContext, useEffect, useMemo, useRef, useState } from "react";
+import React, { memo, useContext, useEffect, useMemo, useState } from "react";
 import { MdModeEdit } from "react-icons/md";
 import { InfoEmpresa } from "../components/InfoEmpresa";
 import { QuantidadeTotal } from "../components/QuantidadeTotal";
@@ -29,7 +30,7 @@ import { FinalizarCotacao } from './FinalizarCotacao';
 import { HistoricoTributosModal } from './HistoricoTributosModal';
 import { IntensCotacaoTabela } from "./ItensCotacaoTabela";
 
-
+import Scroll from "../img/scrolling_mousewheel.gif";
 
 
 
@@ -79,7 +80,7 @@ const CotacaoHome = () => {
 
 	const { isOpen: isOpenSegundo, onOpen: onOpenSegundo, onClose: onCloseSegundo } = useDisclosure();
 
-
+	const { isOpen: isOpenWarn, onOpen: onOpenWarn, onClose: onCloseWarn } = useDisclosure()
 
 
 
@@ -98,16 +99,28 @@ const CotacaoHome = () => {
 
 
 
-
+	const [isFirstTimeInThisPage, setIsFirstTimeInThisPage] = useState();
 
 	useEffect(() => {
+
 		statusLocalmente();
+
 	}, [])
 
 	const dadosUrl = useContext(UrlContext);
 
+	function abrirModalAvisoScroll() {
+		onOpenWarn();
+	}
+	window.addEventListener('load', () => {
+		const isFirstTime = localStorage.getItem(`isFirstTime`) as string;
+		if (isFirstTime) {
+			console.log("opa", isFirstTime)
+		} else {
+			abrirModalAvisoScroll();
 
-
+		}
+	})
 
 
 	const dataSource = [
@@ -381,7 +394,7 @@ const CotacaoHome = () => {
 				dataIndex: 'produto',
 				key: 'produto',
 				align: 'center',
-				width: "70px",
+				width: "90px",
 				ellipsis: {
 					showTitle: false
 				},
@@ -411,6 +424,78 @@ const CotacaoHome = () => {
 
 			},
 			{
+				title: 'Forma Pagamento',
+				dataIndex: 'formapagamento',
+				align: 'center',
+				key: 'formapagamento',
+				width: '110px',
+				shouldCellUpdate: () => true,
+				ellipsis: {
+					showTitle: false
+				},
+				render: (value: string, record: any) => {
+					let stringValue = value;
+					switch (Number.parseInt(value)) {
+						case -1:
+							stringValue = "Nenhum";
+							break;
+						case 0:
+							stringValue = "Boleto Bancário";
+							break;
+						case 1:
+							stringValue = "Cartão crédito";
+							break;
+						case 2:
+							stringValue = "Dinheiro";
+							break;
+						case 3:
+							stringValue = "Cheque";
+							break;
+						case 4:
+							stringValue = "Outros";
+							break;
+						case 5:
+							stringValue = "Pix";
+							break;
+						case 6:
+							stringValue = "Cartão Débito";
+							break;
+						default:
+						// code block
+					}
+					return <Tooltip style={styles.Font14
+					} title={value}>
+						<Text style={styles.Font14}>{stringValue}</Text>
+					</Tooltip>
+				},
+			},
+			{
+				title: 'Tempo Entrega',
+				dataIndex: 'prazo',
+				align: 'center',
+				key: 'prazo',
+				width: '100px',
+				shouldCellUpdate: () => true,
+				ellipsis: {
+					showTitle: false
+				},
+				render: (value: string, record: any) => {
+
+
+					if (Number.parseInt(value) > 0) {
+						return <Tooltip style={styles.Font14
+						} title={value}>
+							<Text style={styles.Font14}>{value} dias</Text>
+						</Tooltip>
+					} else {
+						return <Tooltip style={styles.Font14
+						} title={value}>
+							<Text style={styles.Font14}>Sem data </Text>
+						</Tooltip>
+					}
+				},
+			},
+			{
 				title: 'Marca',
 				dataIndex: 'marca',
 				align: 'center',
@@ -432,7 +517,7 @@ const CotacaoHome = () => {
 				dataIndex: 'quantidade',
 				key: 'quantidade',
 				align: 'center',
-				width: '60px',
+				width: '70px',
 				ellipsis: {
 					showTitle: false
 				},
@@ -877,7 +962,7 @@ const CotacaoHome = () => {
 
 
 	return (
-		<>
+		<div style={{ filter: "blur(0px)" }}>
 			{/* <Button onClick={() => {
 				ref.current?.scrollIntoView({
 					behavior: 'smooth',
@@ -964,7 +1049,31 @@ const CotacaoHome = () => {
 						isLoading={isLoading} isEnviado={isEnviado} />
 
 				</>}
-		</>
+
+			<Modal closeOnEsc={false} closeOnOverlayClick={false} isOpen={isOpenWarn} onClose={onCloseWarn}>
+				<ModalOverlay />
+				<ModalContent>
+					<ModalHeader>Deslize para baixo</ModalHeader>
+
+					<ModalBody>
+						<VStack>
+							<Image w="200px" src={Scroll} />
+						</VStack>
+						<TextChakra fontSize={"lg"}>Devido a quantidade de itens, não é possível mostrar todos na tela, então para que você possa vizualizar todos eles, é possível fazer scroll com o mouse para baixo.</TextChakra>
+					</ModalBody>
+
+					<ModalFooter>
+						<Button colorScheme='blue' mr={3} onClick={() => {
+							onCloseWarn();
+							localStorage.setItem(`isFirstTime`, JSON.stringify("visited"));
+						}}>
+							Entendi
+						</Button>
+
+					</ModalFooter>
+				</ModalContent>
+			</Modal>
+		</div>
 	);
 }
 

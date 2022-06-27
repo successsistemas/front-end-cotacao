@@ -70,7 +70,7 @@ export const QuantidadeTotal = (props: Props) => {
 				<VStack w="full" mb={5}>
 					<Flex w={"full"}>
 						<Text fontSize={"lg"} fontFamily={"Roboto"} style={{ fontWeight: 500 }}>
-							Subtotal
+							Subtotal dos Itens
 						</Text>
 						<Spacer />
 						<Text fontSize={"lg"} fontFamily={"Roboto"} style={{ fontWeight: 500 }}>
