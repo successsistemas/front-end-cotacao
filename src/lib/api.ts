@@ -1,8 +1,8 @@
 import axios from "axios";
 import { CotacaoTDO, CotacaoTDOPayload, DescontoGeral } from "./types";
 
-//export const apiEndPoint = 'https://apicotacaoteste.successsistemas.com';
-export const apiEndPoint = 'http://localhost:3051';
+export const apiEndPoint = 'https://apicotacaoteste.successsistemas.com';
+//export const apiEndPoint = 'http://localhost:3051';
 //lembrar de alterar a porta na api
 export const api = axios.create({
 	baseURL: apiEndPoint,
