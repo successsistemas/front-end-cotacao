@@ -2,7 +2,6 @@ import { useContext } from "react";
 import useSWR from "swr";
 import { UrlContext } from "../context/UrlContext";
 import { apiGetCotacao } from "../lib/api";
-import { ItemCotacaoTDO } from "../lib/types";
 
 export const usePrice = () => {
 

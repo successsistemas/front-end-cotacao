@@ -1,16 +1,14 @@
-import { Flex, HStack, Spacer, Text, useDisclosure, useMediaQuery, VStack, Button } from '@chakra-ui/react';
-import { Button as ButtonMantine } from '@mantine/core';
+import { Button, Flex, HStack, Spacer, Text, useDisclosure, useMediaQuery, VStack } from '@chakra-ui/react';
 import { useNotifications } from '@mantine/notifications';
-import { HiOutlinePrinter } from 'react-icons/hi';
 import moment from "moment";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
+import { HiOutlinePrinter } from 'react-icons/hi';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { BiPrinter } from 'react-icons/bi';
 import { KeyedMutator } from 'swr';
 import { CotacaoContext } from '../context/CotacaoContext';
-import { ModalDesconto } from '../pages/ModalDesconto';
-import { imprimir } from '../lib/printer'
 import { InfoEmpresaContext } from '../context/InfoEmpresaContext';
+import { imprimir } from '../lib/printer';
+import { ModalDesconto } from '../pages/ModalDesconto';
 import { styles } from '../style/style';
 
 

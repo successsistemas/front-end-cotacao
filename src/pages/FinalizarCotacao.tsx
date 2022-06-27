@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import {
-	HStack, Modal,
+	Button, HStack, Modal,
 	ModalBody,
-	ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure, useMediaQuery, Button
+	ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure, useMediaQuery
 } from "@chakra-ui/react";
-import { Button as ButtonMantine, Modal as ModalMantine } from '@mantine/core';
+import { Modal as ModalMantine } from '@mantine/core';
 import { message, Space, Typography } from "antd";
 import React, { useContext, useState } from "react";
 import { KeyedMutator } from "swr";

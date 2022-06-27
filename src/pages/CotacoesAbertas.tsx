@@ -1,9 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import {
 	Button,
-	Center,
-	Image,
-	Divider, Editable, EditableInput, EditablePreview, Text as TextChakra, Flex, HStack, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Spacer, Spinner, useDisclosure, useMediaQuery, VStack
+	Center, Divider, Editable, EditableInput, EditablePreview, Flex, HStack, Image, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Spacer, Spinner, Text as TextChakra, useDisclosure, useMediaQuery, VStack
 } from "@chakra-ui/react";
 import { Stepper } from '@mantine/core';
 import { Badge, Button as ButtonAnt, Layout, message, Tooltip, Typography } from "antd";
@@ -99,7 +97,6 @@ const CotacaoHome = () => {
 
 
 
-	const [isFirstTimeInThisPage, setIsFirstTimeInThisPage] = useState();
 
 	useEffect(() => {
 

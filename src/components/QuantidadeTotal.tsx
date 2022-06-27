@@ -1,13 +1,13 @@
 import { Flex, HStack, Spacer, Text, useDisclosure, useMediaQuery, VStack } from '@chakra-ui/react';
 import { Button } from '@mantine/core';
+import { Tooltip } from 'antd';
+import { motion } from 'framer-motion';
 import moment from "moment";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { CgEyeAlt } from 'react-icons/cg';
 import { KeyedMutator } from 'swr';
 import { CotacaoContext } from '../context/CotacaoContext';
 import { ModalDesconto } from '../pages/ModalDesconto';
-import { motion } from 'framer-motion'
-import { Tooltip } from 'antd';
 type Props = {
 	total: number,
 	totalDesconto: number,

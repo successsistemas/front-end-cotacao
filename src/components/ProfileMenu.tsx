@@ -3,30 +3,29 @@ import {
 	HStack, Link, Modal,
 	ModalBody,
 	ModalCloseButton, ModalContent,
-	ModalFooter, ModalHeader, ModalOverlay, Text as TextChakra, Popover, PopoverArrow, PopoverBody, PopoverCloseButton, PopoverContent, PopoverFooter, PopoverHeader, PopoverTrigger, Portal, Skeleton, useDisclosure, useMediaQuery, VStack, Divider
+	ModalFooter, ModalHeader, ModalOverlay, Skeleton, useDisclosure, useMediaQuery, VStack
 } from "@chakra-ui/react";
 import { Button } from '@mantine/core';
 import { Checkbox, Input, Space, Typography } from "antd";
 import React, { memo, useContext, useEffect, useState } from "react";
-import { MdExpandMore } from "react-icons/md";
+import { FaUser } from "react-icons/fa";
 import { CotacaoContext } from "../context/CotacaoContext";
 import { InfoEmpresaContext } from "../context/InfoEmpresaContext";
 import { InfoFornecedorContext } from "../context/InfoFornecedorContext";
-import { UrlContext } from "../context/UrlContext";
 import { Empresa } from "../lib/types";
 import { styles } from '../style/style';
 const { Text } = Typography;
 
 const ProfileMenuComponent = () => {
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const { isOpen, onOpen, onClose } = useDisclosure()
 	const [fornecedor, setFornecedor] = useState<any>();
 
 	const [isLargerThan600] = useMediaQuery('(min-width: 722px)');
-	const [empresa, setEmpresa] = useState<Empresa | null>();
+	const [, setEmpresa] = useState<Empresa | null>();
 
 
 
-	const dadosUrl = useContext(UrlContext);
 	const price = useContext(CotacaoContext)
 
 	const dadosEmpresa = useContext(InfoEmpresaContext)
@@ -34,6 +33,7 @@ const ProfileMenuComponent = () => {
 
 	const infoFornecedor = useContext(InfoFornecedorContext);
 
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const [codCotacao, setCodCotacao] = useState();
 
 	const firstLetterUpperCase = (word: string) => {
@@ -66,9 +66,9 @@ const ProfileMenuComponent = () => {
 							<HStack><Text style={styles.Profile} >Razão social:</Text><Text style={styles.Profile} >{firstLetterUpperCase(fornecedor?.nome.trim().toLowerCase())}</Text></HStack>
 							<HStack><Text style={styles.Profile}>CNPJ:</Text><Text style={styles.Profile} >{fornecedor?.cnpj.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, "$1.$2.$3/$4-$5")}</Text></HStack>
 							{/* <BsInfoCircleFill color='#538EC6' cursor={"pointer"} /> */}
+							<FaUser color="white" size={"16px"} />
 
-
-							<Popover autoFocus={false}>
+							{/* <Popover autoFocus={false}>
 								<PopoverTrigger>
 									<Button leftIcon={<MdExpandMore />} style={{ boxShadow: "none" }} variant='gradient' onClick={() => { }} >Meu perfil</Button>
 								</PopoverTrigger>
@@ -99,7 +99,7 @@ const ProfileMenuComponent = () => {
 										<PopoverFooter>This is the footer</PopoverFooter>
 									</PopoverContent>
 								</Portal>
-							</Popover>
+							</Popover> */}
 						</HStack>
 						:
 						<></>
@@ -117,7 +117,7 @@ const ProfileMenuComponent = () => {
 			>
 				<ModalOverlay />
 				<ModalContent>
-					<ModalHeader alignItems="center" fontSi fontWeight="normal" >
+					<ModalHeader alignItems="center" fontWeight="normal" >
 						<Text>Identificação do vendedor</Text>
 					</ModalHeader>
 					<ModalCloseButton _focus={{ boxShadow: 'none' }} />

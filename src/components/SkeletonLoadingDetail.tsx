@@ -1,5 +1,5 @@
+import { Button, Image, Link, SimpleGrid, Text, VStack } from "@chakra-ui/react";
 import React from "react";
-import { Box, Button, Divider, HStack, Image, Link, SimpleGrid, Skeleton, Text, VStack } from "@chakra-ui/react";
 export const SkeletonLoadingDetail = () => {
 	return (
 
