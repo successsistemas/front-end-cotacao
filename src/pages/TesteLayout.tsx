@@ -104,7 +104,7 @@ const TesteLayoutComponent = () => {
 					</Menu>
 				</Sider>
 				<Layout className="site-layout" >
-					<Header className="site-layout-background" style={{ padding: 0, backgroundColor: "#228be6" }}>
+					<Header className="site-layout-background" style={{ padding: 0, backgroundColor: "#0A689D" }}>
 						{/*bee3f8 */}
 						<Flex>
 

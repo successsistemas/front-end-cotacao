@@ -1,5 +1,5 @@
-import { Flex, HStack, Spacer, Text, useDisclosure, useMediaQuery, VStack } from '@chakra-ui/react';
-import { Button } from '@mantine/core';
+import { Flex, HStack, Spacer, Text, useDisclosure, useMediaQuery, VStack, Button } from '@chakra-ui/react';
+import { Button as ButtonMantine } from '@mantine/core';
 import { useNotifications } from '@mantine/notifications';
 import { HiOutlinePrinter } from 'react-icons/hi';
 import moment from "moment";
@@ -34,21 +34,8 @@ export const QuantidadeTotalCotacaoFinalizada = (props: Props) => {
 	const price = useContext(CotacaoContext);
 
 
-
-	const [total, setTotal] = useState<number>(0);
-	const [frete, setFrete] = useState<number>(0);
-	const [totalDesconto, setTotalDesconto] = useState<number>(0);
-
 	const dadosEmpresa = useContext(InfoEmpresaContext)
 
-	useEffect(() => {
-
-		if (price.total !== undefined && price.totalFrete !== undefined && price.totalDesconto !== undefined) {
-			setTotal(price.total);
-			setFrete(price.totalFrete)
-			setTotalDesconto(price.totalDesconto)
-		}
-	}, [price])
 
 	const onGenerateReport = () => {
 		notifications.showNotification({
@@ -70,25 +57,25 @@ export const QuantidadeTotalCotacaoFinalizada = (props: Props) => {
 				<HStack w="full">
 
 					<VStack px={3} alignItems={"start"} >
-						<Text color={"gray.500"}>Subtotal</Text>
-						<Text mr={3} fontWeight={"semibold"}>{Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(total)}</Text>
+						<Text fontSize={"lg"} color={"gray.500"}>Subtotald</Text>
+						<Text fontSize={"lg"} mr={3} fontWeight={"semibold"}>{Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(price?.dadosTyped?.data?.total)}</Text>
 					</VStack>
 
 					<VStack px={3} alignItems={"start"} >
-						<Text color={"gray.500"}>Frete</Text>
-						<Text fontWeight={"semibold"}>{Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(frete)}</Text>
+						<Text fontSize={"lg"} color={"gray.500"}>Frete</Text>
+						<Text fontSize={"lg"} fontWeight={"semibold"}>{Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(price?.dadosTyped?.data?.frete)}</Text>
 					</VStack>
 
 					<VStack px={3} alignItems={"start"} >
-						<Text color={"gray.500"}>Desconto</Text>
-						<Text fontWeight={"semibold"}>{Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(totalDesconto)}</Text>
+						<Text fontSize={"lg"} color={"gray.500"}>Desconto</Text>
+						<Text fontSize={"lg"} fontWeight={"semibold"}>{Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(price?.dadosTyped?.data?.totalDesconto)}</Text>
 					</VStack>
 					<VStack alignItems={"start"}>
-						<Text color={"gray.500"}>Total geral</Text>
-						<Text fontWeight={"semibold"}>{(total + frete - totalDesconto).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</Text>
+						<Text fontSize={"lg"} color={"gray.500"}>Total geral</Text>
+						<Text fontSize={"lg"} fontWeight={"semibold"}>{(price?.dadosTyped?.data?.total + price?.dadosTyped?.data?.frete - price?.dadosTyped?.data?.totalDesconto).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</Text>
 					</VStack>
 					<Spacer />
-					<Button leftIcon={<HiOutlinePrinter />} style={{ boxShadow: "none", width: isLargerThan600 ? "" : "100%" }} disabled={false} onClick={onGenerateReport}>
+					<Button colorScheme={"whatsapp"} leftIcon={<HiOutlinePrinter />} style={{ boxShadow: "none", width: isLargerThan600 ? "" : "100%" }} disabled={false} onClick={onGenerateReport}>
 						Gerar relatório
 					</Button>
 
@@ -112,7 +99,7 @@ export const QuantidadeTotalCotacaoFinalizada = (props: Props) => {
 						</Text>
 						<Spacer />
 						<Text style={styles.font14Apple}>
-							{Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(total)}
+							{Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(price?.dadosTyped?.data?.total)}
 						</Text>
 					</Flex>
 
@@ -122,7 +109,7 @@ export const QuantidadeTotalCotacaoFinalizada = (props: Props) => {
 						</Text>
 						<Spacer />
 						<Text style={styles.font14Apple}>
-							{Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(frete)}
+							{Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(price?.dadosTyped?.data?.frete)}
 						</Text>
 					</Flex>
 
@@ -132,7 +119,7 @@ export const QuantidadeTotalCotacaoFinalizada = (props: Props) => {
 						</Text>
 						<Spacer />
 						<Text style={styles.font14Apple}>
-							{Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(totalDesconto)}
+							{Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(price?.dadosTyped?.data?.totalDesconto)}
 						</Text>
 					</Flex>
 
@@ -142,7 +129,7 @@ export const QuantidadeTotalCotacaoFinalizada = (props: Props) => {
 						</Text>
 						<Spacer />
 						<Text style={styles.font14Apple}>
-							{(total + frete - totalDesconto).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}
+							{(price?.dadosTyped?.data?.total + price?.dadosTyped?.data?.frete - price?.dadosTyped?.data?.totalDesconto).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}
 						</Text>
 					</Flex>
 

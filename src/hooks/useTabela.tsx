@@ -129,7 +129,7 @@ export const useTabela = () => {
 
 			},
 			{
-				title: 'marca',
+				title: 'Marca',
 				dataIndex: 'marca',
 				key: 'marca',
 				width: '10%',

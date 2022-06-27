@@ -15,22 +15,23 @@ export const usePrice = () => {
 		revalidateOnReconnect: false
 	});
 
-	const items: [ItemCotacaoTDO] = {
+	const items = {
 		...data,
 		status: false,
 	};
 	const loading = !data && !error;
 
 
+
 	return {
-		cotacoes: data?.data[0][0],
+		cotacoes: data?.itens,
 		dadosTyped: items,
-		total: data?.data[1][0].total,
-		totalDesconto: data?.data[2][0].totalDesconto,
-		totalFrete: data?.data[3][0].totalFrete,
-		isReady: data?.data[4][0].isReady,
-		formaPagamento: data?.data[5][0].formaPagamento,
-		numeroCotacao: data?.data[6][0].numeroCotacao,
+		total: data?.total,
+		totalDesconto: data?.totalDesconto,
+		totalFrete: data?.totalFrete,
+		isReady: data?.isReady,
+		formaPagamento: data?.formaPagamento,
+		numeroCotacao: data?.numeroCotacao,
 		error,
 		mutate,
 		loading,

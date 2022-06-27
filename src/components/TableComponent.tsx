@@ -4,6 +4,7 @@ import React, { memo } from 'react'
 const TableComponentt = ({ data, isEnviado, columnsEnviado, columns }: { data: any, isEnviado: boolean, columnsEnviado: any[], columns: any[] }) => {
 	return (
 		<Table
+
 			onRow={(record, rowIndex) => {
 				return {
 					onClick: event => { console.log(record) }, // click row
@@ -16,8 +17,8 @@ const TableComponentt = ({ data, isEnviado, columnsEnviado, columns }: { data: a
 			loading={data ? false : true}
 			dataSource={data}
 			columns={isEnviado ? columnsEnviado : columns}
-			pagination={{ pageSize: 10 }}
-			scroll={{ y: "200px", x: 1500 }}
+			pagination={{ pageSize: 30 }}
+			scroll={{ y: "300px", x: 1500 }}
 		/>
 	)
 }

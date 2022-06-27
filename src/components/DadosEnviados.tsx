@@ -70,7 +70,7 @@ export const DadosEnviados = () => {
 				},
 			},
 			{
-				title: 'Código/barras',
+				title: 'Código barras',
 				dataIndex: 'codbarras',
 				key: 'codbarras',
 				width: '100px',
@@ -122,7 +122,7 @@ export const DadosEnviados = () => {
 
 			},
 			{
-				title: 'marca',
+				title: 'Marca',
 				dataIndex: 'marca',
 				align: 'center',
 				key: 'marca',

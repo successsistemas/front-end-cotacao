@@ -50,6 +50,7 @@
     "react-scripts": "4.0.3",
     "recoil": "^0.5.2",
     "swr": "^1.0.1",
+    "translatte": "^3.0.1",
     "typescript": "^3.9.5",
     "web-vitals": "^0.2.2",
     "yup": "^0.32.11"

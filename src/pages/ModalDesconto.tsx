@@ -1,4 +1,4 @@
-import { FormControl, FormLabel, HStack, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Select, SimpleGrid, Text, useMediaQuery } from "@chakra-ui/react";
+import { FormControl, FormLabel, HStack, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Select, SimpleGrid, Text, useMediaQuery, VStack } from "@chakra-ui/react";
 import { Button } from '@mantine/core';
 import { Input, message, Space } from "antd";
 import React, { useContext, useEffect, useState } from "react";
@@ -12,6 +12,8 @@ import { DescontoGeral } from "../lib/types";
 import { styles } from "../style/style";
 
 
+
+
 type Props = {
 	isOpen: boolean,
 	onClose: () => void,
@@ -21,6 +23,11 @@ type Props = {
 	totalDesconto: number,
 	totalFrete: number,
 }
+const preventMinus = (e: any) => {
+	if (e.code === 'Minus') {
+		e.preventDefault();
+	}
+};
 
 export const ModalDesconto = (props: Props) => {
 
@@ -35,6 +42,7 @@ export const ModalDesconto = (props: Props) => {
 	const off = useDesconto();
 
 
+
 	const [tipoValor, setTipoValor] = useState<number>(TipoDesconto.VALOR);
 	const [descontoEmPercentual, setDescontoEmPercentual] = useState<string>("0");
 	const [formaPagamento, setFormaPagamento] = useState(FormaPagamento.BOLETO_BANCARIO);
@@ -44,14 +52,15 @@ export const ModalDesconto = (props: Props) => {
 	const [, setTotal] = useState<number>(0);
 
 	const price = useContext(CotacaoContext);
+	console.log(price?.dadosTyped?.data?.totalDesconto)
 
-
+	//price?.dadosTyped?.data?.total
 	useEffect(() => {
-		if (price.total !== undefined && price.totalFrete !== undefined && price.totalDesconto !== undefined) {
-			setFrete(price.totalFrete)
-			setDesconto(price.totalDesconto)
-			setFormaPagamento(price.formaPagamento)
-			setTotal(price.total)
+		if (price?.dadosTyped?.data?.total !== undefined && price?.dadosTyped?.data?.frete !== undefined && price?.dadosTyped?.data?.totalDesconto !== undefined) {
+			setFrete(price?.dadosTyped?.data?.frete)
+			setDesconto(price?.dadosTyped?.data?.totalDesconto)
+			setFormaPagamento(price?.dadosTyped?.data?.formaPagamento)
+			setTotal(price?.dadosTyped?.data?.total)
 		}
 	}, [price])
 
@@ -120,7 +129,7 @@ export const ModalDesconto = (props: Props) => {
 					<ModalBody pb={6} >
 						<SimpleGrid columns={[1, 2, 2]} spacing='10px'>
 							<FormControl mt={4}>
-								<FormLabel fontSize={"16px"}>Tipo desconto</FormLabel>
+								<FormLabel fontSize={"16px"}>Alguma coisa aqui</FormLabel>
 								<Select fontSize={styles.Font16.width} defaultValue={tipoValor} _focus={{ boxShadow: "none" }} onChange={(event: any) => { setTipoValor(Number.parseInt(event.target.value)) }} size="sm">
 									<option value={TipoDesconto.VALOR}>R$</option>
 									<option value={TipoDesconto.PERCENTUAL}>%</option>
@@ -136,6 +145,7 @@ export const ModalDesconto = (props: Props) => {
 											className="ant-input"
 											id="input-custo-produtosddsds"
 											name="input-name"
+											allowNegativeValue={false}
 											placeholder="Please enter a number"
 											defaultValue={desconto}
 											prefix="R$"
@@ -151,10 +161,12 @@ export const ModalDesconto = (props: Props) => {
 
 									</FormControl>
 									:
-									<FormControl>
-										<FormLabel fontSize={styles.Font16.width}>ex: 0,34</FormLabel>
-										<Input style={styles.Font16} type={"number"} value={descontoEmPercentual} step="0.01" onChange={(e) => { setDescontoEmPercentual(e.target.value); console.log(descontoEmPercentual) }} />
-									</FormControl>
+									<VStack mt={4}>
+										<FormControl>
+											<FormLabel fontSize={styles.Font16.width}>ex: 0,34</FormLabel>
+											<Input style={styles.Font16} type={"number"} min={"0"} onKeyPress={preventMinus} value={descontoEmPercentual} step="0.01" onChange={(e) => { setDescontoEmPercentual(e.target.value); console.log(descontoEmPercentual) }} />
+										</FormControl>
+									</VStack>
 							}
 
 
@@ -184,6 +196,8 @@ export const ModalDesconto = (props: Props) => {
 								name="input-name"
 								placeholder="Please enter a number"
 								defaultValue={Number(frete)}
+								allowNegativeValue={false}
+
 								prefix="R$"
 								decimalScale={2}
 								onValueChange={(value: any, name: any, float: any) => {

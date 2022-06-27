@@ -21,7 +21,7 @@ export type CotacaoTDO = {
 	frete: number;
 	st: number;
 	icms: number;
-	formaPagamento: string;
+	formapagamento: string;
 	ipi: number;
 	status: boolean;
 	mva: number;

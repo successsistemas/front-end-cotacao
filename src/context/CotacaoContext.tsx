@@ -13,6 +13,7 @@ export function CotacaoProvider({ children }: CotacaoProviderProps) {
 
 	const cotacao = usePrice();
 
+
 	return (
 		<CotacaoContext.Provider value={cotacao}>
 			{cotacao?.error ? <ContradoNaoExiste /> : children}

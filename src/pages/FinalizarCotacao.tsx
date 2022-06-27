@@ -2,9 +2,9 @@
 import {
 	HStack, Modal,
 	ModalBody,
-	ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure, useMediaQuery
+	ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure, useMediaQuery, Button
 } from "@chakra-ui/react";
-import { Button, Modal as ModalMantine } from '@mantine/core';
+import { Button as ButtonMantine, Modal as ModalMantine } from '@mantine/core';
 import { message, Space, Typography } from "antd";
 import React, { useContext, useState } from "react";
 import { KeyedMutator } from "swr";
@@ -119,7 +119,7 @@ export const FinalizarCotacao = (props: Props) => {
 			<AlertIcon />
 			<Text style={{ color: "#228BE6	" }}>	Antes de efetuar o envio, certifique-se de preencher todos os itens da tabela.</Text>
 		</Alert> */}
-		<Button style={{ boxShadow: "none", width: isLargerThan600 ? "" : "100%" }} disabled={false} onClick={() => { salvar() }}>
+		<Button colorScheme={"whatsapp"} style={{ boxShadow: "none", width: isLargerThan600 ? "" : "100%" }} disabled={false} onClick={() => { salvar() }}>
 			Finalizar cotação
 		</Button>
 

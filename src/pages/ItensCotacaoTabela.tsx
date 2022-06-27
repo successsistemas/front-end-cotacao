@@ -7,7 +7,11 @@ import CurrencyInput from "react-currency-input-field";
 import { FormaPagamento } from "../enuns/enuns";
 import { CotacaoTDO } from "../lib/types";
 import { styles } from "../style/style";
-
+const preventMinus = (e: any) => {
+	if (e.code === 'Minus') {
+		e.preventDefault();
+	}
+};
 
 
 const { Text } = Typography;
@@ -66,76 +70,6 @@ export const IntensCotacaoTabela = (props: Props) => {
 
 	}
 
-	// const colunas: ColumnType<any>[] = [
-	// 	{
-	// 		title: 'Descrição',
-	// 		dataIndex: 'descricao',
-	// 		key: 'descricaomodal',
-	// 		width: "40px",
-	// 		shouldCellUpdate: () => false,
-	// 		ellipsis: {
-	// 			showTitle: false
-	// 		},
-	// 		render: (value: string, record: any) => {
-	// 			return <Tooltip zIndex={99999} title={value}>
-	// 				<Text style={{ fontSize: "12px" }}>{value}</Text>
-	// 			</Tooltip>
-	// 		},
-
-	// 	},
-	// 	{
-	// 		title: 'Item',
-	// 		width: "40px",
-	// 		dataIndex: 'item',
-	// 		key: 'itemmodal',
-	// 		align: 'center',
-	// 		render: (value: string, record: any) => {
-	// 			return <Tooltip zIndex={99999} title={value}>
-	// 				<Text style={{ fontSize: "12px" }}>{value}</Text>
-	// 			</Tooltip>
-	// 		},
-	// 	},
-	// 	{
-	// 		title: 'Código',
-	// 		width: "40px",
-	// 		dataIndex: 'codigo',
-	// 		key: 'codigomodal',
-	// 		align: 'center',
-	// 		render: (value: string, record: any) => {
-	// 			return <Tooltip zIndex={99999} title={value}>
-	// 				<Text style={{ fontSize: "12px" }}>{value}</Text>
-	// 			</Tooltip>
-	// 		},
-	// 	},
-	// 	{
-	// 		title: 'Código/barras',
-	// 		width: "40px",
-	// 		dataIndex: 'codigobarras',
-	// 		key: 'codigobarrasmodal',
-	// 		align: 'center',
-	// 		render: (value: string, record: any) => {
-	// 			return <Tooltip zIndex={99999} title={value}>
-	// 				<Text style={{ fontSize: "12px" }}>{value}</Text>
-	// 			</Tooltip>
-	// 		},
-	// 	},
-	// 	{
-	// 		title: 'Marca',
-	// 		width: "40px",
-	// 		dataIndex: 'marca',
-	// 		key: 'marcamodal',
-	// 		align: 'center',
-
-	// 	},
-	// 	{
-	// 		title: 'quantidade',
-	// 		width: "40px",
-	// 		dataIndex: 'quantidade',
-	// 		key: 'quantidademodal',
-	// 		align: 'center'
-
-	// 	},
-	// ];
 
 	const firstLetterUpperCase = (word: string) => {
 		return word.toLowerCase().replace(/(?:^|\s)\S/g, function (a) {
@@ -143,24 +77,12 @@ export const IntensCotacaoTabela = (props: Props) => {
 		});
 	}
 
-	// function callback(key: any) {
-	// 	setShowForm(!showForm)
-	// }
-
-	// 	const text = `
-	//   A dog is a type of domesticated animal.
-	//   Known for its loyalty and faithfulness,
-	//   it can be found as a welcome guest in many households across the world.
-	// `;
-
-
-	// const { toReal } = useToReal();
 	return (
 		<>
 			<Modal
 				isOpen={props.isOpen}
 				onClose={props.onClose}
-				size={isLargerThan600 ? "md" : "xs"}
+				size={isLargerThan600 ? "full" : "full"}
 			>
 				<ModalOverlay />
 				<ModalContent>
@@ -199,6 +121,7 @@ export const IntensCotacaoTabela = (props: Props) => {
 										<CurrencyInput
 											disabled={props.isEnviado}
 											style={styles.Font16}
+											allowNegativeValue={false}
 											className="ant-input"
 											id="input-example"
 											name="input-name"
@@ -215,6 +138,7 @@ export const IntensCotacaoTabela = (props: Props) => {
 									<FormControl>
 										<FormLabel fontSize={"16px"}>Desconto</FormLabel>
 										<CurrencyInput
+											allowNegativeValue={false}
 											disabled={props.isEnviado}
 											style={styles.Font16}
 											className="ant-input"
@@ -234,6 +158,7 @@ export const IntensCotacaoTabela = (props: Props) => {
 										<FormLabel fontSize={"16px"}>Custo</FormLabel>
 										<CurrencyInput
 											disabled={props.isEnviado}
+											allowNegativeValue={false}
 											style={styles.Font16}
 											className="ant-input"
 											id="input-custo-produto"
@@ -258,7 +183,7 @@ export const IntensCotacaoTabela = (props: Props) => {
 									</FormControl>
 									<FormControl mt={2}>
 										<FormLabel fontSize={"16px"}>Prazo da entrega do produto (em dias).</FormLabel>
-										<Input disabled={props.isEnviado} type={"number"} style={styles.Font16} name={props.prazo} onChange={(e) => { props.setPrazo(e.target.value) }} value={props.prazo} placeholder='Prazo para entraga' />
+										<Input onKeyPress={preventMinus} disabled={props.isEnviado} type={"number"} min={"0"} style={styles.Font16} name={props.prazo} onChange={(e) => { props.setPrazo(e.target.value) }} value={props.prazo} placeholder='Prazo para entraga' />
 									</FormControl>
 									<FormControl mt={2}>
 										<FormLabel fontSize={styles.Font16.width}>Pagamento</FormLabel>
@@ -283,20 +208,20 @@ export const IntensCotacaoTabela = (props: Props) => {
 
 									<FormControl mt={4}>
 										<FormLabel fontSize={"16px"}>% ST</FormLabel>
-										<Input disabled={props.isEnviado} style={styles.Font16} name={props.st} value={props.st} onChange={(e) => { props.setSt(e.target.value) }} placeholder='ST' />
+										<Input onKeyPress={preventMinus} disabled={props.isEnviado} style={styles.Font16} name={props.st} value={props.st} onChange={(e) => { props.setSt(e.target.value) }} placeholder='ST' />
 									</FormControl>
 									<FormControl mt={4}>
 										<FormLabel fontSize={"16px"}>% ICMS</FormLabel>
-										<Input disabled={props.isEnviado} style={styles.Font16} name={props.icms} value={props.icms} onChange={(e) => { props.setIcms(e.target.value) }} placeholder='ICMS' />
+										<Input onKeyPress={preventMinus} disabled={props.isEnviado} style={styles.Font16} name={props.icms} value={props.icms} onChange={(e) => { props.setIcms(e.target.value) }} placeholder='ICMS' />
 									</FormControl>
 									<FormControl mt={4}>
 										<FormLabel fontSize={"16px"}>% MVA</FormLabel>
-										<Input disabled={props.isEnviado} style={styles.Font16} name={props.mva?.toString()} value={props.mva} onChange={(e) => { props.setMva(e.target.value) }} placeholder='MVA' />
+										<Input onKeyPress={preventMinus} disabled={props.isEnviado} style={styles.Font16} name={props.mva?.toString()} value={props.mva} onChange={(e) => { props.setMva(e.target.value) }} placeholder='MVA' />
 									</FormControl>
 									<FormControl mt={4}>
 										<FormLabel fontSize={"16px"}>% IPI</FormLabel>
 
-										<Input disabled={props.isEnviado} style={styles.Font16} name={props.ipi} onChange={(e) => { props.setIpi(e.target.value) }} value={props.ipi} placeholder='IPI' />
+										<Input onKeyPress={preventMinus} disabled={props.isEnviado} style={styles.Font16} name={props.ipi} onChange={(e) => { props.setIpi(e.target.value) }} value={props.ipi} placeholder='IPI' />
 									</FormControl>
 								</SimpleGrid>
 

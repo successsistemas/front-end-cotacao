@@ -24,20 +24,11 @@ export const QuantidadeTotal = (props: Props) => {
 	const { isOpen: isOpenDesconto, onOpen: onOpenDesconto, onClose: onCloseDesconto } = useDisclosure();
 
 	const price = useContext(CotacaoContext);
+	console.log(price?.dadosTyped?.data?.total)
 
 
-	const [total, setTotal] = useState<number>(0);
-	const [frete, setFrete] = useState<number>(0);
-	const [totalDesconto, setTotalDesconto] = useState<number>(0);
 
-	useEffect(() => {
 
-		if (price.total !== undefined && price.totalFrete !== undefined && price.totalDesconto !== undefined) {
-			setTotal(price.total);
-			setFrete(price.totalFrete)
-			setTotalDesconto(price.totalDesconto)
-		}
-	}, [price])
 
 	return (
 		<HStack w="full">
@@ -45,22 +36,22 @@ export const QuantidadeTotal = (props: Props) => {
 				<HStack w="full">
 
 					<VStack px={3} alignItems={"start"} >
-						<Text color={"gray.500"}>Subtotal</Text>
-						<Text mr={3} fontWeight={"semibold"}>{Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(total)}</Text>
+						<Text fontSize={"lg"} color={"gray.500"}>Subtotal</Text>
+						<Text fontSize={"lg"} mr={3} fontWeight={"semibold"}>{Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(price?.dadosTyped?.data?.total)}</Text>
 					</VStack>
 
 					<VStack px={3} alignItems={"start"} >
-						<Text color={"gray.500"}>Frete</Text>
-						<Text fontWeight={"semibold"}>{Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(frete)}</Text>
+						<Text fontSize={"lg"} color={"gray.500"}>Frete</Text>
+						<Text fontSize={"lg"} fontWeight={"semibold"}>{Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(price?.dadosTyped?.data?.frete)}</Text>
 					</VStack>
 
 					<VStack px={3} alignItems={"start"} >
-						<Text color={"gray.500"}>Desconto</Text>
-						<Text fontWeight={"semibold"}>{Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(totalDesconto)}</Text>
+						<Text fontSize={"lg"} color={"gray.500"}>Desconto</Text>
+						<Text fontSize={"lg"} fontWeight={"semibold"}>{Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(price?.dadosTyped?.data?.totalDesconto)}</Text>
 					</VStack>
 					<VStack alignItems={"start"}>
-						<Text color={"gray.500"}>Total geral</Text>
-						<Text fontWeight={"semibold"}>{(total + frete - totalDesconto).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</Text>
+						<Text fontSize={"lg"} color={"gray.500"}>Total geral</Text>
+						<Text fontSize={"lg"} fontWeight={"semibold"}>{(price?.dadosTyped?.data?.total + price?.dadosTyped?.data?.frete - price?.dadosTyped?.data?.totalDesconto).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</Text>
 					</VStack>
 					<motion.div
 						style={{ paddingLeft: 3, paddingRight: 3 }}
@@ -72,57 +63,48 @@ export const QuantidadeTotal = (props: Props) => {
 							</Button>
 						</Tooltip>
 					</motion.div>
-					{
-						// props.totalDesconto > 0 ?
-						// 	<VStack alignItems={"start"}>
-						// 		<Text color={"gray.500"}>Total geral</Text>
-						// 		<Text fontWeight={"semibold"}>{(total + frete - totalDesconto).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</Text>
-						// 	</VStack>
-						// 	: <></>
-					}
-
 
 
 				</HStack>
 				:
 				<VStack w="full" mb={5}>
 					<Flex w={"full"}>
-						<Text fontSize={"14px"} fontFamily={"Roboto"} style={{ fontWeight: 500 }}>
+						<Text fontSize={"lg"} fontFamily={"Roboto"} style={{ fontWeight: 500 }}>
 							Subtotal
 						</Text>
 						<Spacer />
-						<Text fontSize={"14px"} fontFamily={"Roboto"} style={{ fontWeight: 500 }}>
-							{Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(total)}
+						<Text fontSize={"lg"} fontFamily={"Roboto"} style={{ fontWeight: 500 }}>
+							{Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(price?.dadosTyped?.data?.total)}
 						</Text>
 					</Flex>
 
 					<Flex w={"full"}>
-						<Text fontSize={"14px"} fontFamily={"Roboto"} style={{ fontWeight: 500 }}>
+						<Text fontSize={"lg"} fontFamily={"Roboto"} style={{ fontWeight: 500 }}>
 							Frete
 						</Text>
 						<Spacer />
-						<Text fontSize={"14px"} fontFamily={"Roboto"} style={{ fontWeight: 500 }}>
-							{Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(frete)}
+						<Text fontSize={"lg"} fontFamily={"Roboto"} style={{ fontWeight: 500 }}>
+							{Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(price?.dadosTyped?.data?.frete)}
 						</Text>
 					</Flex>
 
 					<Flex w={"full"}>
-						<Text fontSize={"14px"} fontFamily={"Roboto"} style={{ fontWeight: 500 }}>
+						<Text fontSize={"lg"} fontFamily={"Roboto"} style={{ fontWeight: 500 }}>
 							Desconto
 						</Text>
 						<Spacer />
-						<Text fontSize={"14px"} fontFamily={"Roboto"} style={{ fontWeight: 500 }}>
-							{Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(totalDesconto)}
+						<Text fontSize={"lg"} fontFamily={"Roboto"} style={{ fontWeight: 500 }}>
+							{Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(price?.dadosTyped?.data?.totalDesconto)}
 						</Text>
 					</Flex>
 
 					<Flex w={"full"}>
-						<Text fontSize={"14px"} fontFamily={"Roboto"} style={{ fontWeight: 500 }}>
+						<Text fontSize={"lg"} fontFamily={"Roboto"} style={{ fontWeight: 500 }}>
 							Total Geral
 						</Text>
 						<Spacer />
-						<Text fontSize={"14px"} fontFamily={"Roboto"} style={{ fontWeight: 500 }}>
-							{(total + frete - totalDesconto).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}
+						<Text fontSize={"lg"} fontFamily={"Roboto"} style={{ fontWeight: 500 }}>
+							{(price?.dadosTyped?.data?.total + price?.dadosTyped?.data?.frete - price?.dadosTyped?.data?.totalDesconto).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}
 						</Text>
 					</Flex>
 

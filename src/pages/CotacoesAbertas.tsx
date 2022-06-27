@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import {
+	Button,
 	Center,
 	Divider, Editable, EditableInput, EditablePreview, Flex, HStack, Spacer, Spinner, useDisclosure, useMediaQuery, VStack
 } from "@chakra-ui/react";
@@ -8,8 +9,8 @@ import { Badge, Button as ButtonAnt, Layout, message, Tooltip, Typography } from
 import 'antd/dist/antd.css';
 import { ColumnType } from "antd/lib/table";
 import moment from "moment";
-import React, { memo, useContext, useEffect, useMemo, useState } from "react";
-import { CgEyeAlt } from "react-icons/cg";
+import React, { memo, useContext, useEffect, useMemo, useRef, useState } from "react";
+import { MdModeEdit } from "react-icons/md";
 import { InfoEmpresa } from "../components/InfoEmpresa";
 import { QuantidadeTotal } from "../components/QuantidadeTotal";
 import { QuantidadeTotalCotacaoFinalizada } from "../components/QuantidadeTotalCotacaoFinalizada";
@@ -69,11 +70,13 @@ const CotacaoHome = () => {
 
 
 
+
 	const [isLoading, setLoading] = useState(false);
 	const [isUpdateLoading, setUpdateLoading] = useState(false);
-	const { cotacoes, total, totalFrete, totalDesconto, mutate, isReady } = useCotacao();
 
-	// const { isOpen, onOpen, onClose } = useDisclosure();
+	const dadosCotacao = useCotacao();
+
+
 	const { isOpen: isOpenSegundo, onOpen: onOpenSegundo, onClose: onCloseSegundo } = useDisclosure();
 
 
@@ -91,7 +94,9 @@ const CotacaoHome = () => {
 
 	const { isEnviado, statusLocalmente, setEnviado } = useSetStatusLocalmente();
 
-	//const price = useContext(CotacaoContext);
+	const ref = React.useRef<HTMLDivElement>(null);
+
+
 
 
 
@@ -99,114 +104,10 @@ const CotacaoHome = () => {
 		statusLocalmente();
 	}, [])
 
-	// const [, setGerandoPDF] = useState(false);
-
 	const dadosUrl = useContext(UrlContext);
 
 
 
-
-	//aastat
-	// var generateData = function (amount: number) {
-
-	// 	const itens: Array<CotacaoTDO> = [
-	// 		...cotacoes.data
-	// 	]
-	// 	console.log(itens)
-	// 	console.log(cotacoes.data.length)
-	// 	var result = [];
-	// 	var data = {
-	// 		item: "dd",
-	// 		codigo_barras: "codigo_barras",
-	// 		codigo_interno: "codigo_interno",
-	// 		descricao: "descricao",
-	// 		marca: "marca",
-	// 		quantidade: "quantidade",
-	// 		custo: "custo",
-	// 		frete: "frete",
-	// 		st: "st",
-	// 		icms: "icms",
-	// 		forma_pagamento: "forma_pagamento",
-	// 		ipi: "ipi",
-	// 		mva: "mva"
-	// 	};
-	// 	for (var i = 0; i < cotacoes.data.length; i += 1) {
-	// 		data.item = itens[i].item ? itens[i].item : "**";
-	// 		data.quantidade = itens[i].quantidade ? itens[i].quantidade.toString() : "0";
-	// 		data.codigo_barras = itens[i].codbarras ? itens[i].codbarras : "0";
-	// 		data.codigo_interno = itens[i].codigo ? itens[i].codigo : "0";
-	// 		data.descricao = itens[i].descricao ? itens[i].descricao : "**";
-	// 		data.marca = itens[i].marca ? itens[i].marca : "**";
-	// 		data.custo = itens[i].valordoproduto ? itens[i].valordoproduto.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) : "**";
-	// 		data.frete = itens[i].frete ? itens[i].frete.toString() : "**";
-	// 		data.st = itens[i].st ? itens[i].st.toString() : "**";
-	// 		data.icms = itens[i].icms ? itens[i].icms.toString() : "**";
-	// 		data.forma_pagamento = itens[i].formaPagamento ? itens[i].formaPagamento.toString() : "**";
-	// 		data.ipi = itens[i].ipi ? itens[i].ipi.toString() : "**";
-	// 		data.mva = itens[i].mva ? itens[i].mva.toString() : "**";
-	// 		result.push(Object.assign({}, data));
-	// 	}
-	// 	return result;
-	// };
-
-
-
-	// function createHeaders(keys: any) {
-	// 	var result = [];
-	// 	for (var i = 0; i < keys.length; i += 1) {
-	// 		result.push({
-	// 			id: keys[i],
-	// 			name: keys[i],
-	// 			prompt: keys[i],
-	// 			width: 65,
-	// 			align: "center",
-	// 			padding: 10
-	// 		});
-	// 	}
-	// 	return result;
-	// }
-
-	// var headers: any = createHeaders([
-	// 	"item",
-	// 	"codigo_barras",
-	// 	"codigo_interno",
-	// 	"descricao",
-	// 	"marca",
-	// 	"quantidade",
-	// 	"custo",
-	// 	"frete",
-	// 	"st",
-	// 	"icms",
-	// 	"forma_pagamento",
-	// 	"ipi",
-	// 	"mva"
-	// ]);
-
-
-	// function gerarRelatorio() {
-
-	// 	setGerandoPDF(true)
-	// 	var doc = new jsPDF({ putOnlyUsedFonts: true, orientation: "landscape" });
-
-	// 	doc.addImage('https://i.ibb.co/Qk15TwS/logonomesuc-f5f52e7a-f5f52e7a.png', "PNG", 15, 10, 50, 15)
-	// 	// doc.setFont("times", "normal");
-	// 	// doc.text("Success Sistemas", 70, 25)
-
-
-	// 	doc.table(3, 30, generateData(20), headers, { autoSize: true, fontSize: 8 })
-	// 	doc.save('relatório' + dadosUrl?.numeroCotacao)
-	// 	setGerandoPDF(false)
-	// 	pdfGerado();
-
-	// 	// doc.html(element ? element : '', {
-	// 	// 	callback: function (doc) {
-	// 	// 		doc.save("a4.pdf");
-	// 	// 	},
-	// 	// 	x: 10,
-	// 	// 	y: 10
-	// 	// })
-
-	// }
 
 
 	const dataSource = [
@@ -234,6 +135,7 @@ const CotacaoHome = () => {
 		}
 		setHistoricoBoolean(historicoBoolean);
 
+		//recuperar forma pagamento
 		const historico: HistoricoProdutosTDO = {
 			icms: data.icms,
 			st: data.st,
@@ -277,7 +179,7 @@ const CotacaoHome = () => {
 
 	}
 	async function salvarItensLocalmente() {
-		mutate()
+		dadosCotacao?.mutate()
 		setLoading(true);
 		const item: ItemCotacaoTDO = {
 			quantidade: Number(quantidade),
@@ -343,7 +245,7 @@ const CotacaoHome = () => {
 				if (result.status === 201) {
 					setLoading(false);
 					onClose();
-					mutate();
+					dadosCotacao.mutate();
 					success();
 					setUpdateLoading(false)
 					onCloseSegundo()
@@ -410,14 +312,14 @@ const CotacaoHome = () => {
 				render: (value: string, record: any) => {
 					return (
 						<Tooltip title={"Editar"}>
-							<ButtonAnt style={{ ...styles.Font14, color: "#228be6" }} type="link" onClick={() => abrirModal(record, value)}>Editar</ButtonAnt>
+							<ButtonAnt style={{ ...styles.Font14, color: "#228be6" }} type="link" onClick={() => { abrirModal(record, value); }}>Editar</ButtonAnt>
 						</Tooltip>
 					)
 				},
 			},
 
 			{
-				title: 'status',
+				title: 'Status',
 				dataIndex: 'status',
 				key: 'status',
 				align: "center",
@@ -457,7 +359,7 @@ const CotacaoHome = () => {
 				},
 			},
 			{
-				title: 'Código/barras',
+				title: 'Código barras',
 				dataIndex: 'codbarras',
 				key: 'codbarras',
 				width: '100px',
@@ -509,7 +411,7 @@ const CotacaoHome = () => {
 
 			},
 			{
-				title: 'marca',
+				title: 'Marca',
 				dataIndex: 'marca',
 				align: 'center',
 				key: 'marca',
@@ -526,7 +428,7 @@ const CotacaoHome = () => {
 				},
 			},
 			{
-				title: 'quantidade',
+				title: 'Quantidade',
 				dataIndex: 'quantidade',
 				key: 'quantidade',
 				align: 'center',
@@ -565,7 +467,7 @@ const CotacaoHome = () => {
 
 			},
 			{
-				title: 'desconto',
+				title: 'Desconto',
 				dataIndex: 'desconto',
 				key: 'desconto',
 				align: 'right',
@@ -691,7 +593,7 @@ const CotacaoHome = () => {
 				render: (value: string, record: any) => {
 					return (
 						<Tooltip title={"Editar"}>
-							<ButtonAnt style={{ ...styles.Font14, color: "#228be6" }} type="link" onClick={() => abrirModal(record, value)}><CgEyeAlt /></ButtonAnt>
+							<ButtonAnt style={{ ...styles.Font14, color: "gray" }} type="link" onClick={() => abrirModal(record, value)}><MdModeEdit /></ButtonAnt>
 						</Tooltip>
 					)
 				},
@@ -699,7 +601,7 @@ const CotacaoHome = () => {
 
 
 			{
-				title: 'status',
+				title: 'Status',
 				dataIndex: 'status',
 				key: 'status',
 				align: "center",
@@ -739,7 +641,7 @@ const CotacaoHome = () => {
 				},
 			},
 			{
-				title: 'Código/barras',
+				title: 'Código barras',
 				dataIndex: 'codbarras',
 				key: 'codbarras',
 				width: '100px',
@@ -791,7 +693,7 @@ const CotacaoHome = () => {
 
 			},
 			{
-				title: 'marca',
+				title: 'Marca',
 				dataIndex: 'marca',
 				align: 'center',
 				key: 'marca',
@@ -808,7 +710,7 @@ const CotacaoHome = () => {
 				},
 			},
 			{
-				title: 'quantidade',
+				title: 'Quantidade',
 				dataIndex: 'quantidade',
 				key: 'quantidade',
 				align: 'center',
@@ -847,7 +749,7 @@ const CotacaoHome = () => {
 
 			},
 			{
-				title: 'desconto',
+				title: 'Desconto',
 				dataIndex: 'desconto',
 				key: 'desconto',
 				align: 'right',
@@ -976,6 +878,13 @@ const CotacaoHome = () => {
 
 	return (
 		<>
+			{/* <Button onClick={() => {
+				ref.current?.scrollIntoView({
+					behavior: 'smooth',
+					block: 'end',
+					inline: 'nearest'
+				})
+			}}>oj</Button> */}
 			{isVerificandoFlag ?
 				<Center w="full" h="100vh">
 					<VStack>
@@ -1027,26 +936,27 @@ const CotacaoHome = () => {
 								scroll={{ y: "200px", x: 1500 }}
 							/> */}
 
-							<TableComponent data={cotacoes?.data} isEnviado={isEnviado} columnsEnviado={columnsEnviado} columns={columns} />
+							<TableComponent data={dadosCotacao?.dadosTyped?.itens} isEnviado={isEnviado} columnsEnviado={columnsEnviado} columns={columns} />
 
 							{!isEnviado ?
 								<Flex>
-									<QuantidadeTotal totalFrete={totalFrete.data === undefined ? 0 : totalFrete?.data[0]?.totalFrete} mutate={mutate} totalDesconto={totalDesconto.data === undefined ? 0 : totalDesconto?.data[0]?.totalDesconto} total={total.data === undefined ? 0 : total?.data[0]?.total} />
+									<QuantidadeTotal totalFrete={dadosCotacao?.dadosTyped?.frete} mutate={dadosCotacao?.mutate} totalDesconto={dadosCotacao?.dadosTyped?.totalDesconto} total={dadosCotacao?.dadosTyped?.total} />
 									<Spacer />
 									{isLargerThan600 ?
-										<FinalizarCotacao readyToSend={isReady?.data ? isReady?.data[0].isReady : false} mutate={mutate} setEnviado={setEnviado} loading={!isEnviado} setAllPreenchido={setAllPreenchido} />
+										<FinalizarCotacao readyToSend={false} mutate={dadosCotacao?.mutate} setEnviado={setEnviado} loading={!isEnviado} setAllPreenchido={setAllPreenchido} />
 										: <></>}
 								</Flex>
 								:
-								<QuantidadeTotalCotacaoFinalizada totalFrete={totalFrete.data === undefined ? 0 : totalFrete?.data[0]?.totalFrete} mutate={mutate} totalDesconto={totalDesconto.data === undefined ? 0 : totalDesconto?.data[0]?.totalDesconto} total={total.data === undefined ? 0 : total?.data[0]?.total} />
+								<QuantidadeTotalCotacaoFinalizada totalFrete={dadosCotacao?.dadosTyped?.frete} mutate={dadosCotacao?.mutate} totalDesconto={dadosCotacao?.dadosTyped?.totalDesconto} total={dadosCotacao?.dadosTyped?.total} />
 							}
 						</>
 
 						{!isLargerThan600 && !isEnviado ?
-							<FinalizarCotacao readyToSend={isReady?.data ? isReady?.data[0].isReady : false} mutate={mutate} setEnviado={setEnviado} loading={!isEnviado} setAllPreenchido={setAllPreenchido} />
+							<FinalizarCotacao readyToSend={false} mutate={dadosCotacao?.mutate} setEnviado={setEnviado} loading={!isEnviado} setAllPreenchido={setAllPreenchido} />
 							: <></>
 						}
 					</Content>
+					<HStack ref={ref}></HStack>
 					<IntensCotacaoTabela formaPagamento={formaPagamento} setFormaPagamento={setFormaPagamento} prazo={prazo} setPrazo={setPrazo} observacaoItem={note} setObservacaoItem={setNote} desconto={desconto} setDesconto={setDesconto} onClose={onClose} isOpen={isOpen} cotacao={cotacao}
 						dataSource={dataSource} note={note} setNote={setNote} frete={frete} setFrete={setFrete} valorProduto={valorProduto}
 						setValorProduto={setValorProduto} st={st} setSt={setSt} icms={icms} setIcms={setIcms}

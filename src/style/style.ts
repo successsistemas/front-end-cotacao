@@ -31,7 +31,7 @@ const Profile: React.CSSProperties = {
 }
 
 const font14Apple: React.CSSProperties = {
-	fontSize: "14px",
+	fontSize: "lg",
 	fontWeight: 600,
 	fontFamily: '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji'
 }

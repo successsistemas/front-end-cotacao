@@ -22,6 +22,9 @@ export const useItem = () => {
 
 	function abrirModal(cotacao: CotacaoTDO, value: string) {
 
+		console.log("fu")
+		console.log(cotacao)
+
 		setCotacao(cotacao)
 		setIpi(cotacao.ipi !== null ? cotacao?.ipi.toString() : '')
 		setIcms(cotacao.icms !== null ? cotacao?.icms.toString() : '')
@@ -32,7 +35,7 @@ export const useItem = () => {
 		setDesconto(cotacao.desconto !== null ? cotacao.desconto.toString() : '')
 		setNote(cotacao.observacao !== null ? cotacao?.observacao : '')
 		setPrazo(cotacao.prazo !== null ? cotacao?.prazo.toString() : '')
-		setFormaPagamento(cotacao.formaPagamento !== null ? cotacao?.formaPagamento?.toString() : '0');
+		setFormaPagamento(cotacao.formapagamento !== null ? cotacao?.formapagamento?.toString() : '0');
 		onOpen()
 	}
 

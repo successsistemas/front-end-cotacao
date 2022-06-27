@@ -2,7 +2,6 @@ import { useContext } from "react";
 import useSWR from "swr";
 import { UrlContext } from "../context/UrlContext";
 import { apiGetCotacao } from "../lib/api";
-import { ItemCotacaoTDO } from "../lib/types";
 
 export const useCotacao = () => {
 
@@ -15,19 +14,14 @@ export const useCotacao = () => {
 		revalidateOnReconnect: false
 	});
 
-	const items: [ItemCotacaoTDO] = {
+	const items = {
 		...data,
 		status: false,
 	};
 	const loading = !data && !error;
 
 	return {
-		cotacoes: { data: data?.data[0][0] },
-		dadosTyped: items,
-		total: { data: data?.data[1] },
-		totalDesconto: { data: data?.data[2] },
-		totalFrete: { data: data?.data[3] },
-		isReady: { data: data?.data[4] },
+		dadosTyped: items?.data,
 		error,
 		mutate,
 		loading,
