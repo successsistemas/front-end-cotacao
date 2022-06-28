@@ -2,7 +2,6 @@ import moment from 'moment';
 import * as pdfMake from 'pdfmake/build/pdfmake';
 import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 import { TDocumentDefinitions } from "pdfmake/interfaces";
-import { FormaPagamento } from '../enuns/enuns';
 const pdf = pdfMake;
 pdf.vfs = pdfFonts.pdfMake.vfs;
 
@@ -173,17 +172,17 @@ export const getTotal = (totalS: number, totalDesconto: number, totalFrete: numb
 		{
 			style: 'tableExample',
 			table: {
-				widths: ['*', '*', '*', '*', '*'],
+				widths: ['*', '*', '*', '*'],
 				body: [
 					[
-						{ text: 'Forma Pagamento', fontSize: fontSize, fillColor: corHeadTable },
+						// { text: 'Forma Pagamento', fontSize: fontSize, fillColor: corHeadTable },
 						{ text: 'Subtotal', fontSize: fontSize, fillColor: corHeadTable },
 						{ text: 'Frete', fontSize: fontSize, fillColor: corHeadTable },
 						{ text: 'Desconto. barras', fontSize: fontSize, fillColor: corHeadTable },
 						{ text: 'Total Geral', fontSize: fontSize, fillColor: corHeadTable },
 					],
 					[
-						{ text: getFormaPagamentoToString(formaPagamento), fontSize: fontSize },
+						// { text: getFormaPagamentoToString(formaPagamento), fontSize: fontSize },
 						{ text: Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(totalS), fontSize: fontSize },
 						{ text: Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(totalFrete), fontSize: fontSize },
 						{ text: Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(totalDesconto), fontSize: fontSize },
@@ -198,33 +197,30 @@ export const getTotal = (totalS: number, totalDesconto: number, totalFrete: numb
 
 export const getFormaPagamentoToString = (formaPagamamento: number) => {
 
-	let formaPagamentoString = "";
+	let stringValue = "";
 
 	switch (formaPagamamento) {
-		case FormaPagamento.BOLETO_BANCARIO:
-			return formaPagamentoString = "Boleto bancário"
-
-		case FormaPagamento.CARTAO_CREDITO:
-			return formaPagamentoString = "Cartão de crédito"
-
-		case FormaPagamento.CARTAO_DEBITO:
-			return formaPagamentoString = "Cartão de débito"
-
-		case FormaPagamento.CHEQUE:
-			return formaPagamentoString = "Cheque"
-		case FormaPagamento.DINHEIRO:
-			return formaPagamentoString = "Dinheiro"
-		case FormaPagamento.OUTROS:
-			return formaPagamentoString = "Outros"
-		case FormaPagamento.PIX:
-			return formaPagamentoString = "Pix"
-
-		default:
+		case -1:
+			return stringValue = "Nenhum";
+		case 0:
+			return stringValue = "Boleto Bancário";
+		case 1:
+			return stringValue = "Cartão crédito";
+		case 2:
+			return stringValue = "Dinheiro";
+		case 3:
+			return stringValue = "Cheque";
+		case 4:
+			return stringValue = "Outros";
+		case 5:
+			return stringValue = "Pix";
+		case 6:
 			// eslint-disable-next-line @typescript-eslint/no-unused-vars
-			formaPagamentoString = "Nenhum"
-			break;
-	}
+			return stringValue = "Cartão Débito";
 
-	return formaPagamamento;
+	}
+	if (formaPagamamento === 6) {
+		return "Cartão de débito"
+	}
 
 }

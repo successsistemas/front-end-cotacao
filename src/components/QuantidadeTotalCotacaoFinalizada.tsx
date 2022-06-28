@@ -9,7 +9,6 @@ import { CotacaoContext } from '../context/CotacaoContext';
 import { InfoEmpresaContext } from '../context/InfoEmpresaContext';
 import { imprimir } from '../lib/printer';
 import { ModalDesconto } from '../pages/ModalDesconto';
-import { styles } from '../style/style';
 
 
 
@@ -44,7 +43,7 @@ export const QuantidadeTotalCotacaoFinalizada = (props: Props) => {
 		})
 
 		console.log(price)
-		imprimir(price.cotacoes, false, price.total, price.totalDesconto, price.totalFrete, price.formaPagamento, dadosEmpresa?.data?.data)
+		imprimir(price?.dadosTyped?.data?.itens, false, price?.dadosTyped?.data?.total, price?.dadosTyped?.data?.totalDesconto, price?.dadosTyped?.data?.frete, price?.dadosTyped?.data?.formaPagamento, dadosEmpresa?.data?.data)
 
 	}
 
@@ -92,46 +91,46 @@ export const QuantidadeTotalCotacaoFinalizada = (props: Props) => {
 				:
 				<VStack w="full" mb={10}>
 					<Flex w={"full"}>
-						<Text style={styles.font14Apple}>
+						<Text fontSize={"lg"} fontWeight={"semibold"}>
 							Subtotal
 						</Text>
 						<Spacer />
-						<Text style={styles.font14Apple}>
+						<Text fontSize={"lg"} fontWeight={"semibold"}>
 							{Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(price?.dadosTyped?.data?.total)}
 						</Text>
 					</Flex>
 
 					<Flex w={"full"}>
-						<Text style={styles.font14Apple}>
+						<Text fontSize={"lg"} fontWeight={"semibold"}>
 							Frete
 						</Text>
 						<Spacer />
-						<Text style={styles.font14Apple}>
+						<Text fontSize={"lg"} fontWeight={"semibold"}>
 							{Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(price?.dadosTyped?.data?.frete)}
 						</Text>
 					</Flex>
 
 					<Flex w={"full"}>
-						<Text style={styles.font14Apple}>
+						<Text fontSize={"lg"} fontWeight={"semibold"}>
 							Desconto
 						</Text>
 						<Spacer />
-						<Text style={styles.font14Apple}>
+						<Text fontSize={"lg"} fontWeight={"semibold"}>
 							{Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(price?.dadosTyped?.data?.totalDesconto)}
 						</Text>
 					</Flex>
 
 					<Flex w={"full"}>
-						<Text style={styles.font14Apple}>
+						<Text fontSize={"lg"} fontWeight={"semibold"}>
 							Total Geral
 						</Text>
 						<Spacer />
-						<Text style={styles.font14Apple}>
+						<Text fontSize={"lg"} fontWeight={"semibold"}>
 							{(price?.dadosTyped?.data?.total + price?.dadosTyped?.data?.frete - price?.dadosTyped?.data?.totalDesconto).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}
 						</Text>
 					</Flex>
 
-					<Button leftIcon={<HiOutlinePrinter />} style={{ boxShadow: "none", width: isLargerThan600 ? "" : "100%" }} disabled={false} onClick={onGenerateReport}>
+					<Button colorScheme={"whatsapp"} leftIcon={<HiOutlinePrinter />} style={{ boxShadow: "none", width: isLargerThan600 ? "" : "100%" }} disabled={false} onClick={onGenerateReport}>
 						Gerar relatório
 					</Button>
 				</VStack>

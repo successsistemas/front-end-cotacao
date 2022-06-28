@@ -5,6 +5,7 @@ import { InfoEmpresaContext } from '../context/InfoEmpresaContext';
 import { UrlContext } from '../context/UrlContext';
 import { useCotacao } from '../hooks/useCotacao';
 import { Empresa } from '../lib/types';
+import { MdExpandMore, MdExpandLess } from "react-icons/md";
 
 export const InfoEmpresa = () => {
 	const [empresa, setEmpresa] = useState<Empresa | null>();
@@ -22,7 +23,7 @@ export const InfoEmpresa = () => {
 	const [codCotacao, setCodCotacao] = useState();
 
 	useEffect(() => {
-		console.log("tamanho: " + JSON.stringify(dadosCotacao?.dadosTyped?.itens.length))
+
 		//const data: UrlData = JSON.parse(localStorage.getItem('urlData') as string);
 
 		setEmpresa(dadosEmpresa?.data?.data)
@@ -72,9 +73,9 @@ export const InfoEmpresa = () => {
 				:
 				<VStack w="full" alignItems={"start"}>
 					<HStack w="full">
-						<Button onClick={onToggle}>{!isOpen ? "Mais detalhes do Solicitante" : "Menos detalhes do Solicitante"}</Button>
+						<Button leftIcon={!isOpen ? <MdExpandMore /> : <MdExpandLess />} onClick={onToggle}>{!isOpen ? "Mais detalhes do Solicitante" : "Menos detalhes do Solicitante"}</Button>
 						<Spacer />
-						<Text fontWeight={"bold"} fontSize={"lg"}>{dadosCotacao?.dadosTyped?.itens.length} itens</Text>
+						<Text fontWeight={"bold"} fontSize={"lg"}>{dadosCotacao?.dadosTyped?.itens?.length} itens</Text>
 					</HStack>
 
 					<Collapse style={{ width: "100%" }} in={isOpen} animateOpacity>
