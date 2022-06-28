@@ -329,7 +329,7 @@ const CotacaoHome = () => {
 			},
 
 			{
-				title: 'Status',
+				title: 'Sstatus',
 				dataIndex: 'status',
 				key: 'status',
 				align: "center",
@@ -671,19 +671,18 @@ const CotacaoHome = () => {
 				key: 'acoes',
 				shouldCellUpdate: () => true,
 				align: "center",
-				width: "40px",
+				width: "50px",
 				render: (value: string, record: any) => {
 					return (
 						<Tooltip title={"Editar"}>
-							<ButtonAnt style={{ ...styles.Font14, color: "gray" }} type="link" onClick={() => abrirModal(record, value)}><MdModeEdit /></ButtonAnt>
+							<ButtonAnt style={{ ...styles.Font14, color: "#228be6" }} type="link" onClick={() => { abrirModal(record, value); }}>Mostrar</ButtonAnt>
 						</Tooltip>
 					)
 				},
 			},
 
-
 			{
-				title: 'Status',
+				title: 'Sstatus',
 				dataIndex: 'status',
 				key: 'status',
 				align: "center",
@@ -745,7 +744,7 @@ const CotacaoHome = () => {
 				dataIndex: 'produto',
 				key: 'produto',
 				align: 'center',
-				width: "70px",
+				width: "90px",
 				ellipsis: {
 					showTitle: false
 				},
@@ -775,6 +774,78 @@ const CotacaoHome = () => {
 
 			},
 			{
+				title: 'Forma Pagamento',
+				dataIndex: 'formapagamento',
+				align: 'center',
+				key: 'formapagamento',
+				width: '110px',
+				shouldCellUpdate: () => true,
+				ellipsis: {
+					showTitle: false
+				},
+				render: (value: string, record: any) => {
+					let stringValue = value;
+					switch (Number.parseInt(value)) {
+						case -1:
+							stringValue = "Nenhum";
+							break;
+						case 0:
+							stringValue = "Boleto Bancário";
+							break;
+						case 1:
+							stringValue = "Cartão crédito";
+							break;
+						case 2:
+							stringValue = "Dinheiro";
+							break;
+						case 3:
+							stringValue = "Cheque";
+							break;
+						case 4:
+							stringValue = "Outros";
+							break;
+						case 5:
+							stringValue = "Pix";
+							break;
+						case 6:
+							stringValue = "Cartão Débito";
+							break;
+						default:
+						// code block
+					}
+					return <Tooltip style={styles.Font14
+					} title={value}>
+						<Text style={styles.Font14}>{stringValue}</Text>
+					</Tooltip>
+				},
+			},
+			{
+				title: 'Tempo Entrega',
+				dataIndex: 'prazo',
+				align: 'center',
+				key: 'prazo',
+				width: '100px',
+				shouldCellUpdate: () => true,
+				ellipsis: {
+					showTitle: false
+				},
+				render: (value: string, record: any) => {
+
+
+					if (Number.parseInt(value) > 0) {
+						return <Tooltip style={styles.Font14
+						} title={value}>
+							<Text style={styles.Font14}>{value} dias</Text>
+						</Tooltip>
+					} else {
+						return <Tooltip style={styles.Font14
+						} title={value}>
+							<Text style={styles.Font14}>Sem data </Text>
+						</Tooltip>
+					}
+				},
+			},
+			{
 				title: 'Marca',
 				dataIndex: 'marca',
 				align: 'center',
@@ -796,7 +867,7 @@ const CotacaoHome = () => {
 				dataIndex: 'quantidade',
 				key: 'quantidade',
 				align: 'center',
-				width: '60px',
+				width: '70px',
 				ellipsis: {
 					showTitle: false
 				},

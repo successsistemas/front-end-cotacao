@@ -54,7 +54,7 @@ export const QuantidadeTotalCotacaoFinalizada = (props: Props) => {
 				<HStack w="full">
 
 					<VStack px={3} alignItems={"start"} >
-						<Text fontSize={"lg"} color={"gray.500"}>Subtotald</Text>
+						<Text fontSize={"lg"} color={"gray.500"}>Subtotal</Text>
 						<Text fontSize={"lg"} mr={3} fontWeight={"semibold"}>{Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(price?.dadosTyped?.data?.total)}</Text>
 					</VStack>
 
