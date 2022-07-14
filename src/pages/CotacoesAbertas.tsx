@@ -487,7 +487,7 @@ const CotacaoHome = () => {
 					} else {
 						return <Tooltip style={styles.Font14
 						} title={value}>
-							<Text style={styles.Font14}>Sem data </Text>
+							<Text style={styles.Font14}> </Text>
 						</Tooltip>
 					}
 				},
@@ -840,7 +840,7 @@ const CotacaoHome = () => {
 					} else {
 						return <Tooltip style={styles.Font14
 						} title={value}>
-							<Text style={styles.Font14}>Sem data </Text>
+							<Text style={styles.Font14}> </Text>
 						</Tooltip>
 					}
 				},

@@ -225,5 +225,5 @@ export const ModalDesconto = (props: Props) => {
 				</ModalContent>
 			</Modal>
 		</>
-	);
+	)
 }

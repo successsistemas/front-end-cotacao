@@ -1,4 +1,4 @@
-import { Alert, AlertIcon, FormControl, FormLabel, HStack, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Select, SimpleGrid, useMediaQuery, VStack } from "@chakra-ui/react";
+import { Alert, AlertIcon, FormControl, FormLabel, HStack, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Select, SimpleGrid, useMediaQuery, useToast, VStack } from "@chakra-ui/react";
 import { Button } from "@mantine/core";
 import { Input, Space, Typography } from "antd";
 import TextArea from "antd/lib/input/TextArea";
@@ -7,6 +7,13 @@ import CurrencyInput from "react-currency-input-field";
 import { FormaPagamento } from "../enuns/enuns";
 import { CotacaoTDO } from "../lib/types";
 import { styles } from "../style/style";
+
+type MensagemType = {
+	title: string,
+	campo: string;
+
+}
+
 const preventMinus = (e: any) => {
 	if (e.code === 'Minus') {
 		e.preventDefault();
@@ -56,6 +63,22 @@ export const IntensCotacaoTabela = (props: Props) => {
 	const [alertCusto, setAlertCusto] = useState(false);
 	const [showForm] = useState(true);
 
+	const toast = useToast();
+
+	const [mensagemErro, setMensagemErro] = useState<MensagemType>();
+
+	const [isCampoNegativo, setCampoNegative] = useState(false);
+
+	const showMensagem = (titulo: string, descricao: string) => {
+		setCampoNegative(true);
+		// return toast({
+		// 	title: titulo,
+		// 	description: descricao,
+		// 	status: 'error',
+		// 	duration: 9000,
+		// 	isClosable: true,
+		// })
+	}
 
 
 	const [isLargerThan600] = useMediaQuery('(min-width: 722px)');
@@ -68,6 +91,54 @@ export const IntensCotacaoTabela = (props: Props) => {
 			props.verificarHistorico()
 		}
 
+	}
+
+	function validarCampos() {
+		console.log(props.st, typeof (props.st));
+		console.log(props.icms, typeof (props.icms));
+		console.log(props.prazo, typeof (props.prazo));
+		if (Number.parseFloat(props.frete) >= 0) {
+			if (Number.parseFloat(props.valorProduto) >= 0) {
+				if (Number.parseFloat(props.desconto) >= 0) {
+					if (Number.parseFloat(props.prazo) >= 0) {
+						if (Number.parseFloat(props.st) >= 0) {
+							if (Number.parseFloat(props.icms) >= 0) {
+								if (Number.parseFloat(props.mva) >= 0) {
+									if (Number.parseFloat(props.ipi) >= 0) {
+										setCampoNegative(false);
+										verificarHistorico();
+									} else {
+										setErrorNegativeInputs("Campo com número negativo", "O campo IPI precisa ser maior ou igual a 0 (zero).")
+									}
+								} else {
+									setErrorNegativeInputs("Campo com número negativo", "O campo MVA precisa ser maior ou igual a 0 (zero).")
+								}
+							} else {
+								setErrorNegativeInputs("Campo com número negativo", "O campo ICMS precisa ser maior ou igual a 0 (zero).")
+							}
+						} else {
+							setErrorNegativeInputs("Campo com número negativo", "O campo ST precisa ser maior ou igual a 0 (zero).")
+						}
+					} else {
+						setErrorNegativeInputs("Campo com número negativo", "O campo Prazo da entrega precisa ser maior ou igual a 0 (zero).")
+					}
+				} else {
+					setErrorNegativeInputs("Campo com número negativo", "O campo Desconto precisa ser maior ou igual a 0 (zero).")
+				}
+
+			} else {
+				setErrorNegativeInputs("Campo com número negativo", "O campo Custo precisa ser maior ou igual a 0 (zero).")
+			}
+
+		} else {
+			setErrorNegativeInputs("Campo com número negativo", "O campo frete precisa ser maior ou igual a 0 (zero).")
+		}
+		//verificarHistorico();
+	}
+
+	function setErrorNegativeInputs(msg: string, campo: string) {
+		setCampoNegative(true);
+		setMensagemErro({ campo: campo, title: msg });
 	}
 
 
@@ -121,7 +192,7 @@ export const IntensCotacaoTabela = (props: Props) => {
 										<CurrencyInput
 											disabled={props.isEnviado}
 											style={styles.Font16}
-											allowNegativeValue={false}
+											// allowNegativeValue={false}
 											className="ant-input"
 											id="input-example"
 											name="input-name"
@@ -138,7 +209,7 @@ export const IntensCotacaoTabela = (props: Props) => {
 									<FormControl>
 										<FormLabel fontSize={"16px"}>Desconto</FormLabel>
 										<CurrencyInput
-											allowNegativeValue={false}
+											// allowNegativeValue={false}
 											disabled={props.isEnviado}
 											style={styles.Font16}
 											className="ant-input"
@@ -158,7 +229,7 @@ export const IntensCotacaoTabela = (props: Props) => {
 										<FormLabel fontSize={"16px"}>Custo</FormLabel>
 										<CurrencyInput
 											disabled={props.isEnviado}
-											allowNegativeValue={false}
+											// allowNegativeValue={false}
 											style={styles.Font16}
 											className="ant-input"
 											id="input-custo-produto"
@@ -183,7 +254,7 @@ export const IntensCotacaoTabela = (props: Props) => {
 									</FormControl>
 									<FormControl mt={2}>
 										<FormLabel fontSize={"16px"}>Prazo da entrega do produto (em dias).</FormLabel>
-										<Input onKeyPress={preventMinus} disabled={props.isEnviado} type={"number"} min={"0"} style={styles.Font16} name={props.prazo} onChange={(e) => { props.setPrazo(e.target.value) }} value={props.prazo} placeholder='Prazo para entraga' />
+										<Input disabled={props.isEnviado} type={"number"} style={styles.Font16} name={props.prazo} onChange={(e) => { props.setPrazo(e.target.value) }} value={props.prazo} placeholder='Prazo para entraga' />
 									</FormControl>
 									<FormControl mt={2}>
 										<FormLabel fontSize={styles.Font16.width}>Pagamento</FormLabel>
@@ -208,20 +279,20 @@ export const IntensCotacaoTabela = (props: Props) => {
 
 									<FormControl mt={4}>
 										<FormLabel fontSize={"16px"}>% ST</FormLabel>
-										<Input onKeyPress={preventMinus} disabled={props.isEnviado} style={styles.Font16} name={props.st} value={props.st} onChange={(e) => { props.setSt(e.target.value) }} placeholder='ST' />
+										<Input type={"number"} disabled={props.isEnviado} style={styles.Font16} name={props.st} value={props.st} onChange={(e) => { props.setSt(e.target.value) }} placeholder='ST' />
 									</FormControl>
 									<FormControl mt={4}>
 										<FormLabel fontSize={"16px"}>% ICMS</FormLabel>
-										<Input onKeyPress={preventMinus} disabled={props.isEnviado} style={styles.Font16} name={props.icms} value={props.icms} onChange={(e) => { props.setIcms(e.target.value) }} placeholder='ICMS' />
+										<Input type={"number"} disabled={props.isEnviado} style={styles.Font16} name={props.icms} value={props.icms} onChange={(e) => { props.setIcms(e.target.value) }} placeholder='ICMS' />
 									</FormControl>
 									<FormControl mt={4}>
 										<FormLabel fontSize={"16px"}>% MVA</FormLabel>
-										<Input onKeyPress={preventMinus} disabled={props.isEnviado} style={styles.Font16} name={props.mva?.toString()} value={props.mva} onChange={(e) => { props.setMva(e.target.value) }} placeholder='MVA' />
+										<Input type={"number"} disabled={props.isEnviado} style={styles.Font16} name={props.mva?.toString()} value={props.mva} onChange={(e) => { props.setMva(e.target.value) }} placeholder='MVA' />
 									</FormControl>
 									<FormControl mt={4}>
 										<FormLabel fontSize={"16px"}>% IPI</FormLabel>
 
-										<Input onKeyPress={preventMinus} disabled={props.isEnviado} style={styles.Font16} name={props.ipi} onChange={(e) => { props.setIpi(e.target.value) }} value={props.ipi} placeholder='IPI' />
+										<Input type={"number"} disabled={props.isEnviado} style={styles.Font16} name={props.ipi} onChange={(e) => { props.setIpi(e.target.value) }} value={props.ipi} placeholder='IPI' />
 									</FormControl>
 								</SimpleGrid>
 
@@ -250,8 +321,12 @@ export const IntensCotacaoTabela = (props: Props) => {
 
 					<ModalFooter>
 						<VStack >
+							{isCampoNegativo && <Alert status='warning' my={4}>
+								<AlertIcon />
+								<Text style={styles.Font16}>{`${mensagemErro?.title} : ${mensagemErro?.campo} `}</Text>
+							</Alert>}
 							<Space>
-								<Button disabled={props.isEnviado} loading={props.isLoading} onClick={() => { verificarHistorico() }}>
+								<Button disabled={props.isEnviado} loading={props.isLoading} onClick={() => { validarCampos() }}>
 									Salvar
 								</Button>
 								<Button disabled={props.isEnviado} variant="outline" onClick={props.onClose}>Cancelar</Button>
