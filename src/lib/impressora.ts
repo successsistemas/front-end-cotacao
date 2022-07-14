@@ -8,7 +8,7 @@ pdf.vfs = pdfFonts.pdfMake.vfs;
 const corHeadTable = '#D6E7FF'
 // const corHeadTableGray = '#D9D9D9'
 
-const fontSize = 8;
+const fontSize = 9;
 
 
 export const generateADocument = () => {
@@ -31,9 +31,8 @@ export const imprimir = (itens: any[], download: boolean, totalS: number, totalD
 	}
 
 	const total: any[] = getTotal(totalS, totalDesconto, totalFrete, formaPagamento);
-	const colunas: any[] = retornaColunas();
 
-	definition.content = [...getCabecalho(dadosEmpresa, itens[0].codigo), ...colunas, ...arrayItens, ...total];
+	definition.content = [...getCabecalho(dadosEmpresa, itens[0].codigo), ...arrayItens, ...total];
 
 	pdfMake.createPdf(definition);
 
@@ -108,7 +107,7 @@ const getCabecalho = (dadosEmpresa: any, codigoCotacao: string) => {
 	return head;
 }
 
-export const retornaColunas = () => {
+export const getItemTable = (item: any) => {
 	const itemTable: any[] = [
 		{
 			style: 'tableExample',
@@ -126,38 +125,7 @@ export const retornaColunas = () => {
 						{ text: 'Desconto', fontSize: fontSize, fillColor: corHeadTable },
 						{ text: 'Frete', fontSize: fontSize, fillColor: corHeadTable },
 
-					]
-				]
-			},
-			layout: 'noBorders'
-		},
-		{
-			style: 'tableExample',
-			table: {
-				widths: [100, '*', 100, '*', '*'],
-				body: [
-					[
-						{ text: '% st', fillColor: corHeadTable, fontSize: fontSize },
-						{ text: '% mva', fillColor: corHeadTable, fontSize: fontSize },
-						{ text: '% icms', fillColor: corHeadTable, fontSize: fontSize },
-						{ text: '% ipi', fillColor: corHeadTable, fontSize: fontSize },
-
-						{ text: 'Total', fillColor: corHeadTable, fontSize: fontSize }
-					]
-				]
-			},
-			layout: 'noBorders',
-		}
-	]
-	return itemTable;
-}
-export const getItemTable = (item: any) => {
-	const itemTable: any[] = [
-		{
-			style: 'tableExample',
-			table: {
-				widths: [25, 60, '*', '*', 30, 30, 50, 40, 25],
-				body: [
+					],
 					[
 						{ text: item.item.toLowerCase(), fontSize: fontSize },
 						{ text: item.produto.toLowerCase(), fontSize: fontSize },
@@ -178,7 +146,14 @@ export const getItemTable = (item: any) => {
 			table: {
 				widths: [100, '*', 100, '*', '*'],
 				body: [
+					[
+						{ text: '% st', fillColor: corHeadTable, fontSize: fontSize },
+						{ text: '% mva', fillColor: corHeadTable, fontSize: fontSize },
+						{ text: '% icms', fillColor: corHeadTable, fontSize: fontSize },
+						{ text: '% ipi', fillColor: corHeadTable, fontSize: fontSize },
 
+						{ text: 'Total', fillColor: corHeadTable, fontSize: fontSize }
+					],
 					[{ text: item.st + '%', fontSize: fontSize }, { text: item.mva + '%', fontSize: fontSize }, { text: item.icms + '%', fontSize: fontSize }, { text: item.ipi + '%', fontSize: fontSize }, { text: 12.76, fontSize: fontSize }]
 				]
 			},
