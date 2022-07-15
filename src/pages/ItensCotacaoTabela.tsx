@@ -1,4 +1,4 @@
-import { Alert, AlertIcon, FormControl, FormLabel, HStack, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Select, SimpleGrid, useMediaQuery, useToast, VStack } from "@chakra-ui/react";
+import { Alert, AlertIcon, FormControl, FormLabel, HStack, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Select, SimpleGrid, useMediaQuery, VStack } from "@chakra-ui/react";
 import { Button } from "@mantine/core";
 import { Input, Space, Typography } from "antd";
 import TextArea from "antd/lib/input/TextArea";
@@ -14,11 +14,7 @@ type MensagemType = {
 
 }
 
-const preventMinus = (e: any) => {
-	if (e.code === 'Minus') {
-		e.preventDefault();
-	}
-};
+
 
 
 const { Text } = Typography;
@@ -63,22 +59,12 @@ export const IntensCotacaoTabela = (props: Props) => {
 	const [alertCusto, setAlertCusto] = useState(false);
 	const [showForm] = useState(true);
 
-	const toast = useToast();
 
 	const [mensagemErro, setMensagemErro] = useState<MensagemType>();
 
 	const [isCampoNegativo, setCampoNegative] = useState(false);
 
-	const showMensagem = (titulo: string, descricao: string) => {
-		setCampoNegative(true);
-		// return toast({
-		// 	title: titulo,
-		// 	description: descricao,
-		// 	status: 'error',
-		// 	duration: 9000,
-		// 	isClosable: true,
-		// })
-	}
+
 
 
 	const [isLargerThan600] = useMediaQuery('(min-width: 722px)');
@@ -94,9 +80,7 @@ export const IntensCotacaoTabela = (props: Props) => {
 	}
 
 	function validarCampos() {
-		console.log(props.st, typeof (props.st));
-		console.log(props.icms, typeof (props.icms));
-		console.log(props.prazo, typeof (props.prazo));
+
 		if (Number.parseFloat(props.frete) >= 0) {
 			if (Number.parseFloat(props.valorProduto) >= 0) {
 				if (Number.parseFloat(props.desconto) >= 0) {

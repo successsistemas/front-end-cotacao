@@ -9,7 +9,6 @@ import 'antd/dist/antd.css';
 import { ColumnType } from "antd/lib/table";
 import moment from "moment";
 import React, { memo, useContext, useEffect, useMemo, useState } from "react";
-import { MdModeEdit } from "react-icons/md";
 import { InfoEmpresa } from "../components/InfoEmpresa";
 import { QuantidadeTotal } from "../components/QuantidadeTotal";
 import { QuantidadeTotalCotacaoFinalizada } from "../components/QuantidadeTotalCotacaoFinalizada";

@@ -1,4 +1,4 @@
-import { FormControl, FormLabel, HStack, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Select, SimpleGrid, Text, useMediaQuery, VStack } from "@chakra-ui/react";
+import { Alert, AlertIcon, FormControl, FormLabel, HStack, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Select, SimpleGrid, Text, useMediaQuery, VStack } from "@chakra-ui/react";
 import { Button } from '@mantine/core';
 import { Input, message, Space } from "antd";
 import React, { useContext, useEffect, useState } from "react";
@@ -23,11 +23,13 @@ type Props = {
 	totalDesconto: number,
 	totalFrete: number,
 }
-const preventMinus = (e: any) => {
-	if (e.code === 'Minus') {
-		e.preventDefault();
-	}
-};
+
+
+type MensagemType = {
+	title: string,
+	campo: string;
+
+}
 
 export const ModalDesconto = (props: Props) => {
 
@@ -41,7 +43,9 @@ export const ModalDesconto = (props: Props) => {
 
 	const off = useDesconto();
 
+	const [, setMensagemErro] = useState<MensagemType>();
 
+	const [isCampoNegativo, setCampoNegative] = useState(false);
 
 	const [tipoValor, setTipoValor] = useState<number>(TipoDesconto.VALOR);
 	const [descontoEmPercentual, setDescontoEmPercentual] = useState<string>("0");
@@ -52,7 +56,7 @@ export const ModalDesconto = (props: Props) => {
 	const [, setTotal] = useState<number>(0);
 
 	const price = useContext(CotacaoContext);
-	console.log(price?.dadosTyped?.data?.totalDesconto)
+
 
 	//price?.dadosTyped?.data?.total
 	useEffect(() => {
@@ -98,6 +102,8 @@ export const ModalDesconto = (props: Props) => {
 	function prepararDesconto() {
 		if (tipoValor === TipoDesconto.VALOR) {
 			const valorDesconto = Number.parseFloat(desconto.toString());
+			console.log("preparando desconto:");
+			console.log("valor desconto", desconto)
 			return valorDesconto;
 		} else {
 			// const valorTotalItens = total;
@@ -108,6 +114,31 @@ export const ModalDesconto = (props: Props) => {
 			const valorDesconto = Number.parseFloat(descontoEmPercentual.toString());
 			return valorDesconto;
 		}
+	}
+	function validadarCampos() {
+		console.log(frete, typeof (frete))
+		console.log(descontoEmPercentual, typeof (descontoEmPercentual))
+		console.log(desconto, typeof (desconto))
+		const isVazio = Number.parseFloat(descontoEmPercentual) ? false : true;
+		if (frete >= 0) {
+			if (desconto >= 0) {
+				if (Number.parseFloat(descontoEmPercentual) >= 0 || !isVazio) {
+					setCampoNegative(false);
+					salvarDesconto();
+				} else {
+					setErrorNegativeInputs("Campo com número negativo", "O campo desconto precisa ser maior ou igual a 0 (zero).")
+				}
+			} else {
+				setErrorNegativeInputs("Campo com número negativo", "O campo desconto em percentual precisa ser maior ou igual a 0 (zero).")
+			}
+		} else {
+			setErrorNegativeInputs("Campo com número negativo", "O campo frete precisa ser maior ou igual a 0 (zero).")
+		}
+	}
+
+	function setErrorNegativeInputs(msg: string, campo: string) {
+		setCampoNegative(true);
+		setMensagemErro({ campo: campo, title: msg });
 	}
 
 
@@ -130,7 +161,14 @@ export const ModalDesconto = (props: Props) => {
 						<SimpleGrid columns={[1, 2, 2]} spacing='10px'>
 							<FormControl mt={4}>
 								<FormLabel fontSize={"16px"}>Alguma coisa aqui</FormLabel>
-								<Select fontSize={styles.Font16.width} defaultValue={tipoValor} _focus={{ boxShadow: "none" }} onChange={(event: any) => { setTipoValor(Number.parseInt(event.target.value)) }} size="sm">
+								<Select fontSize={styles.Font16.width} defaultValue={tipoValor} _focus={{ boxShadow: "none" }} onChange={(event: any) => {
+									setTipoValor(Number.parseInt(event.target.value))
+									const descontoVazio = desconto ? false : true;
+									if (descontoVazio) {
+										console.log("Esse é um campo vazio")
+									}
+
+								}} size="sm">
 									<option value={TipoDesconto.VALOR}>R$</option>
 									<option value={TipoDesconto.PERCENTUAL}>%</option>
 								</Select>
@@ -145,14 +183,24 @@ export const ModalDesconto = (props: Props) => {
 											className="ant-input"
 											id="input-custo-produtosddsds"
 											name="input-name"
-											allowNegativeValue={false}
-											placeholder="Please enter a number"
+											allowNegativeValue={true}
+											placeholder="Vazio 0 (zero)."
 											defaultValue={desconto}
 											prefix="R$"
 											decimalScale={2}
 											onValueChange={(value: any, name: any, float: any) => {
+
+												console.log("numero é vazio ou não")
+												console.log(float, typeof (float))
+												if (float.float === null) {
+													console.log("campo é null")
+
+													setDesconto(0)
+												}
 												setDesconto(float?.float ? (float.float).toString() : (0).toString())
-												float?.float === 0 ? setDesconto(props.totalDesconto) : setDesconto(float?.float ? (float.float).toString() : (0).toString())
+												float?.float === null ? setDesconto(props.totalDesconto) : setDesconto(float?.float ? (float.float).toString() : (0).toString())
+												console.log("set preço do desconto, alo sobre controle financeiro.")
+												console.log(desconto);
 
 											}}
 										/>
@@ -164,7 +212,29 @@ export const ModalDesconto = (props: Props) => {
 									<VStack mt={4}>
 										<FormControl>
 											<FormLabel fontSize={styles.Font16.width}>ex: 0,34</FormLabel>
-											<Input style={styles.Font16} type={"number"} min={"0"} onKeyPress={preventMinus} value={descontoEmPercentual} step="0.01" onChange={(e) => { setDescontoEmPercentual(e.target.value); console.log(descontoEmPercentual) }} />
+											<Input style={styles.Font16} type={"number"} value={descontoEmPercentual} step="0.01" onChange={(e) => {
+												setDescontoEmPercentual(e.target.value);
+												console.log(descontoEmPercentual)
+
+												console.log("desconto percentual é vazio ou não")
+												const isVazio = e.target.value ? false : true;
+
+												console.log("zero", e.target.value === "0");
+												if (!isVazio) {
+													const valor = Number.parseFloat(e.target.value);
+													if (valor < 0) {
+														console.log(typeof (valor), valor, "ok")
+														const valorPositivo = (valor * (-1)).toString();
+														console.log("valor positivo", valorPositivo);
+														setDescontoEmPercentual(valorPositivo)
+													}
+												}
+												if (isVazio) {
+													console.log("campo é null")
+
+													setDescontoEmPercentual("0")
+												}
+											}} />
 										</FormControl>
 									</VStack>
 							}
@@ -196,7 +266,7 @@ export const ModalDesconto = (props: Props) => {
 								name="input-name"
 								placeholder="Please enter a number"
 								defaultValue={Number(frete)}
-								allowNegativeValue={false}
+								allowNegativeValue={true}
 
 								prefix="R$"
 								decimalScale={2}
@@ -207,15 +277,18 @@ export const ModalDesconto = (props: Props) => {
 
 						</FormControl>
 
-						{/* <Alert status='warning' my={4}>
-							<AlertIcon />
-							<Text style={styles.Font16}>É necessário preencher todos os campos.</Text>
-						</Alert> */}
+						{
+							isCampoNegativo &&
+							<Alert status='warning' my={4}>
+								<AlertIcon />
+								<Text style={styles.Font16}>Todos campos numéricos devem ser maior ou igual a 0 (zero).</Text>
+							</Alert>
+						}
 					</ModalBody>
 
 					<ModalFooter>
 						<Space>
-							<Button style={styles.Font16} onClick={() => { salvarDesconto() }} loading={false} >
+							<Button style={styles.Font16} onClick={() => { validadarCampos() }} loading={false} >
 								Salvar
 							</Button>
 
