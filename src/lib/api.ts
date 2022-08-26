@@ -1,8 +1,8 @@
 import axios from "axios";
 import { CotacaoTDO, CotacaoTDOPayload, DescontoGeral } from "./types";
 
-export const apiEndPoint = 'https://apicotacaoteste.successsistemas.com';
-// export const apiEndPoint = 'http://localhost:3051';
+//export const apiEndPoint = 'https://apicotacaoteste.successsistemas.com';
+export const apiEndPoint = 'http://localhost:3050';
 //export const apiEndPoint = 'http://localhost:3050';
 //lembrar de alterar a porta na api
 export const api = axios.create({
@@ -51,17 +51,11 @@ export const apiGetCotacoes = async (codigo: string) => {
 export const apiGetCotacao = async (url: string): Promise<CotacaoTDO | any> => {
 	//codigoCotacao + '/' + codigoFornecedor + '/' + codigoContratoEmpresa + '/' + codigoEmpresa
 
-
 	try {
 		const res: CotacaoTDO = await api.get('/price/findby/' + url);
 		return res;
 	} catch (e: any) {
-
-		if (e && e.response && e.reponse.status === 401)
-			return { data: null, error: e };
-		else {
-			throw e;
-		}
+		throw e;
 	}
 }
 export const apiPostFlag = async (cotacaoTDOPayload: CotacaoTDOPayload): Promise<any> => {

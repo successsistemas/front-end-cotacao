@@ -13,10 +13,11 @@ export function CotacaoProvider({ children }: CotacaoProviderProps) {
 
 	const cotacao = usePrice();
 
+	console.log(cotacao?.error?.response?.data?.message)
 
 	return (
 		<CotacaoContext.Provider value={cotacao}>
-			{cotacao?.error ? <ContradoNaoExiste /> : children}
+			{cotacao?.error ? <ContradoNaoExiste texto={cotacao?.error?.response?.data?.message} /> : children}
 		</CotacaoContext.Provider>
 	);
 }
