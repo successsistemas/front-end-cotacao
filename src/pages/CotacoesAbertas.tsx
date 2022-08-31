@@ -1022,8 +1022,8 @@ const CotacaoHome = () => {
 
 
 	const firstLetterUpperCase = (word: string) => {
-		return word.toLowerCase().replace(/(?:^|\s)\S/g, function (a) {
-			return a.toUpperCase();
+		return word?.toLowerCase().replace(/(?:^|\s)\S/g, function (a) {
+			return a?.toUpperCase();
 		});
 	}
 
